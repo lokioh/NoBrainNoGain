@@ -1,0 +1,33 @@
+.caseBrun, .caseBlanc {
+	width : 90px;
+	height : 90px;
+	padding : 0;
+	margin : 0;
+}
+
+#plateau {
+	border : 5px solid #797979;
+	width : 730px;
+	height : 730px;
+}
+
+#plateau, #plateau tr, #plateau td {
+	padding : 0;
+	margin : 0;
+	border-collapse: collapse;
+}
+
+#plateau tr, #plateau td{
+	border-collapse: collapse;
+	border: 2px;
+	padding : 0;
+	margin : 0;	
+}
+
+.caseBrun{
+	background-color : #000;
+}
+
+.caseBlanc{
+	background-color : #FFF;
+}
