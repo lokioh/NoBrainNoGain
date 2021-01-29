@@ -9,8 +9,6 @@ body{
   background: #030321;
   font-family: Arial;
   text-transform: uppercase;
-  position: absolute;
-  left: -20px;
 }
 
 svg {
@@ -19,6 +17,12 @@ svg {
     width: 960px;
     height: 300px;
     margin: 0 auto;
+}
+
+.logo{
+	width: 100px;
+	height: 100px;
+	background-position: 1% 5%;
 }
 
 .text-copy {
