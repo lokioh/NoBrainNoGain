@@ -1,6 +1,4 @@
-.bgcolor.scrolled {
-	background-color:black;
-}
+
 
 .carousel-caption {
 	bottom: 220px;
@@ -19,6 +17,10 @@
 }
 
 /* Début NavBar */
+
+.bgcolor.scrolled {
+	background-color:black;
+}
 
 .navbar-nav a {
 	font-family: poppins;
