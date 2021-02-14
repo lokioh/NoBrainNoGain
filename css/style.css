@@ -1,4 +1,4 @@
-
+/* Début de Haut de page */
 
 .carousel-caption {
 	bottom: 220px;
@@ -15,6 +15,24 @@
 	margin-top: 5em;
 	font-family: merienda;
 }
+
+.d-block {
+	max-height: 750px;
+}
+
+@media only screen and (max-width: 1280px) {
+
+	.carousel-caption {
+		visibility: hidden;
+	}
+
+	.animated {
+		visibility: visible;
+	}
+}
+
+/* Fin Haut de page */
+
 
 /* Début NavBar */
 
@@ -181,18 +199,6 @@ h3 {
 }
 
 /* Fin footer */
-
-
-@media only screen and (max-width: 1280px) {
-
-	.carousel-caption {
-		visibility: hidden;
-	}
-
-	.animated {
-		visibility: visible;
-	}
-}
 
 
 
