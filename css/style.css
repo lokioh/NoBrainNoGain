@@ -1,37 +1,58 @@
+html, body{
+    margin: 0;
+	padding: 0;
+	border: 0;
+}
+
 /* Début de Haut de page */
 
 .carousel-caption {
-	bottom: 220px;
+	top: 275px;
 }
 
-.carousel-caption {
-	margin-top: 15em;
-}
-
-.carousel-caption h1 {
+.carousel-caption h1 h2 {
 	font-size: 45px;
 	text-transform: uppercase;
 	letter-spacing: 2px;
-	margin-top: 5em;
+	margin: 1.5em 3em 1em 3em;
 	font-family: merienda;
 }
 
 .d-block {
-	max-height: 750px;
+	max-height: 975px;
 }
 
 @media only screen and (max-width: 1280px) {
 
 	.carousel-caption {
-		visibility: hidden;
+		top: auto;
 	}
 
-	.animated {
-		visibility: visible;
-	}
 }
 
 /* Fin Haut de page */
+
+
+/* Début Contenu de la page */
+
+h2 {
+	text-align: center;
+	margin-top: 2em;
+	margin-bottom: 5em;
+	text-transform: uppercase;
+	font-family: 'Trebuchet MS', Helvetica, sans-serif;
+	font-size: 45px;
+	color: #2C3E50;
+}
+
+.img-fluid {
+	margin: 0 50px 10em 50px;
+	max-width: 100%;
+	max-height: 100%;
+	border-radius: 30px;
+}
+
+/* Fin Contenu de la page */
 
 
 /* Début NavBar */
@@ -156,49 +177,111 @@
 
 /* Début footer */
 
-@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
-
 body {
-    background: linear-gradient(0deg, #fff, 50%, #DEEEFE);
-    font-family: 'Rubik', sans-serif;
-    background: transparent;
-    height: 100 !important
+	font-family: 'Signika', sans-serif;
 }
 
-.container-fluid {
-    overflow: hidden;
-    margin-top: 250px;
-    background: #262626;
-    color: transparent !important;
-    margin-bottom: 0;
-    padding-bottom: 0
+.bg-grey {
+	background: #292929;
 }
 
-small {
-    font-size: calc(12px + (15 - 12) * ((100vw - 360px) / (1600 - 360))) !important
+.logo-footer {
+	margin-bottom: 40px; 
 }
 
-.bold-text {
-    color: #989c9e !important
+footer {
+	color: grey; 
 }
 
-.mt-55 {
-    margin-top: calc(50px + (60 - 50) * ((100vw - 360px) / (1600 - 360))) !important
+footer p, a {
+	font-size: 12px;
+	font-family: 'Roboto', sans-serif;
 }
 
-h3 {
-    font-size: calc(34px + (40 - 34) * ((100vw - 360px) / (1600 - 360))) !important
+footer h6 {
+	font-family: 'Playfair Display', serif;
+	margin-bottom: 40px;
+	position: relative;
 }
 
-.social {
-    font-size: 21px !important
+footer h6:after {
+	position: absolute;
+	content: "";
+	background: grey;
+	width: 12%;
+	height: 1px;
+	left: 0;
+	bottom: -20px;
 }
 
-.rights {
-    font-size: calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important
+.btn-footer {
+	color: grey;	  
+	text-decoration: none;
+	border: 1px solid;
+	border-radius: 43px;
+	font-size: 13px;
+	padding: 7px 30px;
+	line-height: 47px;
+}
+
+.btn-footer:hover {		
+	text-decoration: none;
+}
+
+.form-footer input[type="text"] {
+	border: none;
+	border-radius: 16px 0 0 16px;
+	outline: none;
+	padding-left: 10px;
+
+}
+
+::placeholder {
+	font-size: 10px;
+	padding-left: 10px;
+	font-style: italic;
+}
+
+.form-footer input[type="button"] {
+	border: none;
+	background:#232323;
+	margin-left: -5px;
+	color: #fff;
+	outline: none;
+	border-radius: 0 16px 16px 0;
+	padding: 2px 12px;
+}
+
+.social .fa {
+	color: grey;
+	font-size: 22px;
+	padding: 10px 15px;
+	background: #3c3c3c;
+}
+
+footer ul li {
+	list-style: none;
+	display: block;
+}
+
+footer ul  {
+	padding-left: 0;
+}
+
+footer ul  li a {
+	text-decoration: none;
+	color: grey;
+	text-decoration:none;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #f5f5f5 !important;
+}
+
+.logo-part {
+	border-right: 1px solid grey;
+	height: 100%;
 }
 
 /* Fin footer */
-
-
-
