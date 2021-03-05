@@ -1,0 +1,14 @@
+{
+    "db": {
+        "host": "localhost",
+        "user": "root",
+        "password": "",
+        "database": "nobrainnogaindb",
+        "port": "3306"
+    },
+
+    "routes": {
+        "/Authentification": "Authentification",
+        "/": "Home"
+    }
+}
