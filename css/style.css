@@ -148,6 +148,18 @@ hr.droite {
 	float: right;
 }
 
+.banner {
+	background: #a770ef;
+	background: -webkit-linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
+	background: linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
+}
+
+.display-4 {
+	text-align: center;
+	text-transform: uppercase;
+	color: black;
+}
+
 /* Fin Contenu de la page */
 
 /* Début NavBar */
@@ -584,19 +596,6 @@ a:hover {
 
 /* Fin footer */
 
-body {
-	background: #f4f4f4;
-}
 
-.banner {
-	background: #a770ef;
-	background: -webkit-linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
-	background: linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
-}
 
-.display-4 {
-	text-align: center;
-	text-transform: uppercase;
-	color: black;
-}
 
