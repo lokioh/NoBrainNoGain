@@ -10,6 +10,14 @@ class AuthentificationManagement {
         })
     }
 
+    mailIsTaken(mail) {
+        let statement = 'SELECT mail_user FROM user WHERE mail_user = ?';
+
+        this.connection.query(statement, [mail], (error, result) => {
+            if(result != null) return false;
+        });
+    }
+
     mailIsGood(mailLogin) {
         let statement = 'SELECT * FROM user WHERE mail_user = ?';
         

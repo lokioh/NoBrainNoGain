@@ -12,17 +12,17 @@ class Authentification {
         let mailRegister = req.body.emailRegister;
         let pwdRegister = req.body.passwordRegister;
         let model = new AuthentificationManagement(config);
-        
+
 
         if (mailLogin != null && pwdLogin != null) {
 
             model.mailIsGood(mailLogin).then((valid) => {
-                if(!valid) {
+                if (!valid) {
                     console.log('Le mail est incorrect');
                     res.redirect('/Authentification');
                 } else {
                     model.pwdIsGood(pwdLogin).then((valid) => {
-                        if(!valid){
+                        if (!valid) {
                             console.log('Le mot de passe est incorrect');
                             res.redirect('/Authentification');
                         } else {
@@ -36,17 +36,24 @@ class Authentification {
                     })
                 }
             }).catch((error) => {
-                setImmediate(()=> {
+                setImmediate(() => {
                     throw error;
                 })
             })
-            
+
         } else {
-            model.addUser(mailRegister, pwdRegister);
-            res.redirect('/Authentification');
-            console.log('Inscription réusie avec succès !');
+
+            if(!model.mailIsTaken(mailRegister)){
+                console.log('Le mail est déjà pris !');
+                res.redirect('/Authentification');
+            } else {
+                model.addUser(mailRegister, pwdRegister);
+                res.redirect('/Authentification');
+                console.log('Inscription réusie avec succès !');
+            }
+
         }
-       
+
     }
 }
 
