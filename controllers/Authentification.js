@@ -7,7 +7,6 @@ class Authentification {
     }
 
     post(req, res, config) {
-        console.log('ui');
         let mailLogin = req.body.emailLogin;
         let pwdLogin = req.body.passwordLogin;
         let mailRegister = req.body.emailRegister;
