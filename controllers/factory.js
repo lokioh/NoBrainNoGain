@@ -2,7 +2,7 @@ const Authentification = require('./Authentification');
 const Home = require('./Home');
 
 const classes = {
-    Authentification, 
+    Authentification,
     Home
 }
 

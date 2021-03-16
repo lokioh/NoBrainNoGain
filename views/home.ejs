@@ -45,6 +45,14 @@
           <li class="nav-item">
             <a class="nav-link" href="#footer">Contact</a>
           </li>
+          <% if(isLoggedIn) { %>
+            <li class="nav-item">
+              <a class="nav-link" href="">Profil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Déconnexion</a>
+            </li>
+            <% } %>
         </ul>
       </div>
     </div>
@@ -63,18 +71,19 @@
         <div id="container">
 
 
-          <p class="title"><a href="">
+          <p class="title"><a href="/">
               No Brain No Gain
             </a></p>
-
-
-
         </div>
         <p class="animated bounceInLeft" style="animation-delay: 1s">Bienvenue sur No Brain No Gain, le site de jeux
           de jeux de réflexion parfait pour occuper votre temps libre.</p><br>
-        <p class="animated bounceInRight" style="animation-delay: 1.5s"><a href="/Authentification"><button
-              class="button"><span>
-                Inscrivez vous !</span></button></a></p>
+        <% if(!isLoggedIn) { %>
+          <p class="animated bounceInRight" style="animation-delay: 1.5s"><a href="/Authentification"><button
+              class="button"><span>Inscrivez vous !</span></button></a></p>
+          <% } else { %>
+            <p class="animated bounceInRight" style="animation-delay: 1.5s">Bienvenue <%=user%> !</p>
+            <% } %>
+
       </div>
     </div>
   </div>
@@ -251,7 +260,7 @@
   <!-- Fin du contenu de la page -->
 
 
-  
+
 
   <!-- Début Footer -->
 

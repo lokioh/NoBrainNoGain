@@ -9,6 +9,8 @@
 
     "routes": {
         "/Authentification": "Authentification",
-        "/": "Home"
+        "/": "Home",
+        "/logout": ""
+
     }
 }

@@ -18,15 +18,17 @@ class Authentification {
 
             model.mailIsGood(mailLogin).then((valid) => {
                 if (!valid) {
-                    console.log('Le mail est incorrect');
+                    console.log('ERREUR : mail incorrect.');
                     res.redirect('/Authentification');
                 } else {
-                    model.pwdIsGood(pwdLogin).then((valid) => {
+                    model.pwdIsGood(mailLogin, pwdLogin).then((valid) => {
                         if (!valid) {
-                            console.log('Le mot de passe est incorrect');
+                            console.log('ERREUR : mot de passe incorrect.');
                             res.redirect('/Authentification');
                         } else {
-                            console.log('Connexion réussie avec succès !');
+                            req.session.isLogged = true;
+                            req.session.username = mailLogin;
+                            console.log('Connexion réussie.');
                             res.redirect('/');
                         }
                     }).catch((error) => {
@@ -43,15 +45,20 @@ class Authentification {
 
         } else {
 
-            if(!model.mailIsTaken(mailRegister)){
-                console.log('Le mail est déjà pris !');
-                res.redirect('/Authentification');
-            } else {
-                model.addUser(mailRegister, pwdRegister);
-                res.redirect('/Authentification');
-                console.log('Inscription réusie avec succès !');
-            }
-
+            model.mailIsTaken(mailRegister).then((valid) => {
+                if(valid){
+                    console.log('ERREUR : Le mail est déjà utilisé.');
+                    res.redirect('/Authentification');
+                } else {
+                    model.addUser(mailRegister, pwdRegister);
+                    res.redirect('/Authentification');
+                    console.log('Inscription réussie.');
+                }
+            }).catch((error) => {
+                setImmediate(() => {
+                    throw error;
+                })
+            })
         }
 
     }

@@ -10,14 +10,20 @@ class AuthentificationManagement {
         })
     }
 
+    //méthode qui vérifie si l'email est déjà utilisé
     mailIsTaken(mail) {
         let statement = 'SELECT mail_user FROM user WHERE mail_user = ?';
 
-        this.connection.query(statement, [mail], (error, result) => {
-            if(result != null) return false;
+        return new Promise((resolve, reject) => {
+            this.connection.query(statement, [mail], (error, result) => {
+                if(error) return reject;
+                return resolve(result.length > 0);
+            });
         });
+        
     }
 
+    //méthode qui vérifie si l'email est bon
     mailIsGood(mailLogin) {
         let statement = 'SELECT * FROM user WHERE mail_user = ?';
         
@@ -29,22 +35,26 @@ class AuthentificationManagement {
         });
     }
 
-    pwdIsGood(pwdLogin) {
-        let statement = 'SELECT * FROM user WHERE pwd_user = ?';
+    //méthode qui vérifie si le mot de passe est bon et correspond au mot de passe crypté
+    pwdIsGood(mailLogin, pwdLogin) {
+        let statement = 'SELECT * FROM user WHERE mail_user = ?';
         
         return new Promise((resolve, reject) => { //promesse qui att le résultat( res du resolve) pour continuer 
-            this.connection.query(statement, [pwdLogin], (error, result) => {
+            this.connection.query(statement, mailLogin, (error, result) => {
                 if (error) return reject;
-                return resolve(result.length > 0); 
+                return resolve(bcrypt.compare(pwdLogin, result[0].pwd_user)); 
             });
         });
     }
 
+    //méthode qui ajoute un nouvel utilisateur
     addUser(mail, pwd) {
         let statement = 'INSERT INTO user (mail_user, pwd_user) VALUES(?,?)';
 
-        this.connection.query(statement, [mail, pwd], (error) => {
-            if(error) return error;
+        bcrypt.hash(pwd, 10).then((hash_password) => {
+            this.connection.query(statement, [mail, hash_password], (error) => {
+                if(error) return error;
+            });
         });
     }
 }
