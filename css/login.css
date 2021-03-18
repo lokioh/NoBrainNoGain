@@ -9,7 +9,7 @@
 }
 
 body {
-	background: #f6f5f7;
+
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -19,6 +19,14 @@ body {
 	margin: -20px 0 50px;
 }
 
+#test1{
+	background-color: deepskyblue;
+	background-image: linear-gradient( white, rgba(255,255,255,0));
+	transition: background-color 1s;
+}
+#test1:hover{
+	background-color: dodgerblue;
+}
 h1 {
 	font-weight: bold;
 	margin: 0;
