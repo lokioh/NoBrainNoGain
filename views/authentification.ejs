@@ -17,14 +17,14 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- Fichier CSS version TEST-->
-
+    <link href="./css/navbar.css" rel="stylesheet">
     <link href="./css/login.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-    <!-- Début NavBar -->
+    <%- include("../views/layouts/navbar.ejs", {isLoggedIn: false} ) %>
 
     <div class="container" id="container">
         <div class="form-container sign-up-container">

@@ -44,4 +44,3 @@ for (let key in config['routes']) {
 }
 
 app.listen(PORT);
-module.exports = app;
