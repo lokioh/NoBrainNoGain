@@ -48,11 +48,11 @@ class AuthentificationManagement {
     }
 
     //méthode qui ajoute un nouvel utilisateur
-    addUser(mail, pwd) {
-        let statement = 'INSERT INTO user (mail_user, pwd_user) VALUES(?,?)';
+    addUser(name, mail, pwd) {
+        let statement = 'INSERT INTO user (name_user, mail_user, pwd_user) VALUES(?,?,?)';
 
         bcrypt.hash(pwd, 10).then((hash_password) => {
-            this.connection.query(statement, [mail, hash_password], (error) => {
+            this.connection.query(statement, [name, mail, hash_password], (error) => {
                 if(error) return error;
             });
         });
