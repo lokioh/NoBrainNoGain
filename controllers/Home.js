@@ -4,10 +4,8 @@ class Home {
         res.render('home', {
             user: req.session.username, isLoggedIn: req.session.isLogged
         });
-
     }
 
-    
 
 }
 

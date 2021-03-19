@@ -3,12 +3,10 @@ const GetUserInfo = require('../models/GetUserInfo');
 
 class Authentification {
 
-
-
     getView(req, res) {
 
         res.render('authentification', {
-            erreurLogin: Authentification.errorLogin, erreurRegister: Authentification.erreurRegister
+            err_msg: ''
         });
     }
 
@@ -28,20 +26,20 @@ class Authentification {
             model.mailIsGood(mailLogin).then((valid) => {
                 if (!valid) {
                     console.log('ERREUR : mail incorrect.');
-                    res.redirect('/Authentification');
-                    Authentification.errorLogin = "err";
+                    res.render('authentification', {err_msg: 'erreurLogin'});
+                    
                 } else {
                     model.pwdIsGood(mailLogin, pwdLogin).then((valid) => {
                         if (!valid) {
                             console.log('ERREUR : mot de passe incorrect.');
-                            res.redirect('/Authentification');
-                            Authentification.errorLogin = "err";
+                            
+                            res.render('authentification', {err_msg: 'erreurLogin'});
+                            
                         } else {
 
                             model1.getName(mailLogin).then(function (result) {
                                 req.session.isLogged = true;
                                 req.session.username = result;
-                                console.log(req.session.username);
 
                                 console.log('Connexion réussie.');
                                 res.redirect('/');
@@ -73,8 +71,8 @@ class Authentification {
             model.mailIsTaken(mailRegister).then((valid) => {
                 if (valid) {
                     console.log('ERREUR : Le mail est déjà utilisé.');
-                    res.redirect('/Authentification');
-                    Authentification.erreurRegister = 'err';
+                    res.render('authentification', {err_msg: 'erreurRegister'});
+                    
                 } else {
                     model.addUser(nameRegister, mailRegister, pwdRegister);
                     res.redirect('/Authentification');
