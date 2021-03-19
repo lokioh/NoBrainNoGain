@@ -18,6 +18,17 @@ html, body {
 	font-family: merienda;
 }
 
+.font-italic {
+    font-family: "Raleway", sans-serif;
+	font-size: 30px;
+	font-weight: 300;
+	margin: 1.5em 3em 1em 3em;
+	padding-top: 1.5em;
+	color: white;
+	line-height: 36px;
+	letter-spacing: 1px;
+}
+
 .d-block {
 	max-height: 975px;
 }
