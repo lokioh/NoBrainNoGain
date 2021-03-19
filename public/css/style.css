@@ -135,10 +135,12 @@ p a {
 
 .titleG {
 	margin-top: 100px;
-	margin-bottom: 50px;
 	text-align: center;
 }
 
+.container-fluid {
+	margin-top: 50px;
+}
 
 /* Début bouton jouer */
 
@@ -192,7 +194,18 @@ p a {
 
 /* Fin bouton jouer */
 
-
+.end {
+	background-image: url(../img/background-end.jpg);
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+	padding-top: 15%;
+	padding-left: 15%;
+	padding-left: 15%;
+	padding-bottom: 15%;
+	margin-bottom: 250px;
+}
 
 /* Fin Contenu de la page */
 
