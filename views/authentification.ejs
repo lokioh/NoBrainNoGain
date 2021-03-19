@@ -36,9 +36,9 @@
                     <input type="texte" placeholder="Nom" name="nameRegister" required>
                     <input type="email" placeholder="Email" name="emailRegister" required>
                     <input type="password" placeholder="Mot de passe" name="passwordRegister" required>
-                    <% if (erreurRegister == 'err') { %>
-                        <%- include('../views/errors/RegisterErr.ejs') -%>
-                    <% } %>
+                    <% if (err_msg=='erreurRegister' ) { %>
+                        <p style="color: red;">L'email est déjà pris par un autre utilisateur !</p>
+                        <% } %>
                     <button type="submit">Inscrivez-vous!</button>
                 </form>
             </div>
@@ -48,10 +48,10 @@
                     <input type="email" placeholder="Email" name="emailLogin" required>
                     <input type="password" placeholder="Mot de passe" name="passwordLogin" required>
 
-                    <% if (erreurLogin == 'err') { %>
-                        <%- include('../views/errors/loginErr.ejs') -%>
-                    <% } %>
-                    <button type="submit">Se connecter</button>
+                    <% if (err_msg=='erreurLogin' ) { %>
+                        <p style="color: red;">Votre mot de passe ou votre email est incorrect !</p>
+                        <% } %>
+                            <button type="submit">Se connecter</button>
                 </form>
             </div>
             <div class="overlay-container">
