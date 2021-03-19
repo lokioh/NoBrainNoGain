@@ -10,7 +10,8 @@
     "routes": {
         "/Authentification": "Authentification",
         "/": "Home",
-        "/logout": ""
+        "/logout": "",
+        "/Profil": "Profil"
 
     }
 }
