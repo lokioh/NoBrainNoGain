@@ -3,13 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>No Brain No Gain - Login</title>
+    <title>No Brain No Gain</title>
 
     <link rel="icon" type="image/png" href="./img/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Merienda&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Audiowide|Iceland|Monoton|Pacifico|Press+Start+2P|Vampiro+One'
+        rel='stylesheet' type='text/css'>
 
     <!-- Fichier Pannel  -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -17,76 +19,63 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- Fichier CSS version TEST-->
-    <link href="./css/navbar.css" rel="stylesheet">
+
     <link href="./css/login.css" rel="stylesheet">
+    <link href="./css/navbar.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-    <%- include("../views/layouts/navbar.ejs", {isLoggedIn: false, button: 'login'} ) %>
+    <%- include('../views/layouts/navbar.ejs', {button: 'login' , isLoggedIn: false}) -%>
 
-    <div class="container" id="container">
-        <div class="form-container sign-up-container">
-            <form method="POST">
-                <h1>Créer un compte</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <span>ou utilisez votre email pour vous connecter</span>
-
-                <input type="email" placeholder="Email" name="emailRegister" />
-                <input type="password" placeholder="Mot de passe" name="passwordRegister" />
-                <button>Inscrivez-vous!</button>
-            </form>
-        </div>
-        <div class="form-container sign-in-container">
-            <form method="POST">
-                <h1>Connectez vous</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <span>ou utilisez votre compte</span>
-                <input type="email" placeholder="Email" name="emailLogin" />
-                <input type="password" placeholder="Mot de passe" name="passwordLogin" />
-                <a href="#">Mot de passe oublié</a>
-                <button type="submit">Se connecter</button>
-            </form>
-        </div>
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <h1>Te revoilà !</h1>
-                    <p>Entre tes informations personnel pour te connecter</p>
-                    <button class="ghost" id="signIn">Se connecter</button>
-                </div>
-                <div class="overlay-panel overlay-right">
-                    <h1>Bonjour petit joueur</h1>
-                    <p>Entre tes informations personnels et commence à jouer avec nous</p>
-                    <button class="ghost" id="signUp">Créer ton compte</button>
+        <div class="container" id="container">
+            <div class="form-container sign-up-container">
+                <form method="POST">
+                    <h1>Créer un compte</h1>
+                    <input type="texte" placeholder="Nom" />
+                    <input type="email" placeholder="Email" />
+                    <input type="mot de passe" placeholder="Mot de passe" />
+                    <button type="submit">Inscrivez-vous!</button>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form method="POST">
+                    <h1>Connectez vous</h1>
+                    <input type="email" placeholder="Email" name="email" />
+                    <input type="mot de passe" placeholder="Mot de passe" name="password" />
+                    <button type="submit">Se connecter</button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>Te revoilà !</h1>
+                        <p>Entre tes informations personnel pour te connecter</p>
+                        <button class="ghost" id="signIn">Se connecter</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Bonjour petit joueur</h1>
+                        <p>Entre tes informations personnels et commence à jouer avec nous</p>
+                        <button class="ghost" id="signUp">Créer ton compte</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
 
-    <!-- Fin Footer -->
 
+        <!-- Scripts -->
 
-    <!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <!-- Fichiers JS -->
 
-    <!-- Fichiers JS -->
-
-    <script src="./js/login.js"></script>
+        <script src="./js/login.js"></script>
+        <script src="./js/myscript.js"></script>
 
 </body>
 

@@ -11,20 +11,15 @@
           <a class="nav-link" href="/">Accueil</a>
         </li>
 
-        <% if(button=='login') { %>
-          <li class="nav-item">
-            <a class="nav-link" href="#games">Jeux</a>
-          </li>
-        <% } %>
-
         <% if(button=='home' ) { %>
           <li class="nav-item">
             <a class="nav-link" href="#games">Jeux</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#footer">Contact</a>
-          </li>
           <% } %>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#footer">Contact</a>
+            </li>
 
             <% if(isLoggedIn) { %>
               <li class="nav-item">
