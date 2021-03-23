@@ -132,6 +132,16 @@ p a {
 	margin-top: 50px;
 }
 
+.subTitleG {
+	margin-top: 20px;
+}
+
+#descriptG {
+	padding-left: 80px;
+	padding-right: 80px;
+}
+
+
 /* Début bouton jouer */
 
 .buttonGames {

@@ -12,7 +12,8 @@
         "/": "Home",
         "/logout": "",
         "/Profil": "Profil",
-        "/sudoku": "Sudoku"
+        "/sudoku": "Sudoku",
+        "/puissance4": "Connect4"
 
     }
 }
