@@ -1291,7 +1291,7 @@
   }
   
   .bg-gradient-default {
-    background: linear-gradient(87deg, #3a3283 0, transparent 100%) !important;
+    background: linear-gradient(87deg, #211872 0, transparent 100%) !important;
   }
   
   @keyframes floating-lg {

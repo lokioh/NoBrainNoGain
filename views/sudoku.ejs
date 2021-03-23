@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title> sudoku test</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="./css/sudoku.css" />
+	<script type="application/javascript" src="./js/games/sudoku.js"></script>
+</head>
+
+<body>
+	<div class="container"></div>
+
+
+	<div id="Message"></div>
+	<div id="controls">
+		<div id="difficulty">
+			<input type="radio" id="difficultyChoice1" name="difficulty" value="easy">
+			<label for="difficultyChoice1">Facile</label>
+			<input type="radio" id="difficultyChoice2" name="difficulty" value="normal" checked="true">
+			<label for="difficultyChoice2">Normal</label>
+			<input type="radio" id="difficultyChoice3" name="difficulty" value="hard">
+			<label for="difficultyChoice3">Difficile</label>
+		</div>
+		<div id="other">
+			<button type="button" class="btn primary" data-action="newGame">Nouvelle partie</button>
+			<button type="button" class="btn primary" data-action="solve">Solution</button>
+			<button type="button" class="btn primary" data-action="validate">Valider</button>
+		</div>
+	</div>
+</body>
+
+</html>

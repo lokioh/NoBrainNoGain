@@ -45,7 +45,8 @@
             <div class="col-lg-7 col-md-10">
               <h1 class="display-2 text-white">Bonjour <%=user%>
               </h1>
-              <p class="text-white mt-0 mb-5">Tu te trouve sur ta page de profil. C'est ici que tu vas pouvoir retrouver tous tes scores et tes statistiques</p>
+              <p class="text-white mt-0 mb-5">Tu te trouve sur ta page de profil. C'est ici que tu vas pouvoir retrouver
+                tous tes scores et tes statistiques</p>
               <a href="#!" class="btn btn-info">Modifier le profil</a>
             </div>
           </div>
@@ -92,7 +93,7 @@
                 </div>
                 <div class="text-center">
                   <h3>
-                    Jessica Jones<span class="font-weight-light">, 27</span>
+                    <%=user%>
                   </h3>
                   <div class="h5 font-weight-300">
                     <i class="ni location_pin mr-2"></i>Bucharest, Romania
@@ -137,27 +138,21 @@
                       </div>
                       <div class="col-lg-6">
                         <div class="form-group">
-                          <label class="form-control-label" for="input-email">Email address</label>
+                          <label class="form-control-label" for="input-email">Email</label>
                           <input type="email" id="input-email" class="form-control form-control-alternative"
-                            placeholder="jesse@example.com">
+                            placeholder="">
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-lg-6">
                         <div class="form-group focused">
-                          <label class="form-control-label" for="input-first-name">First name</label>
+                          <label class="form-control-label" for="input-first-name">Name</label>
                           <input type="text" id="input-first-name" class="form-control form-control-alternative"
-                            placeholder="First name" value="Lucky">
+                            placeholder="name" value="<%=user%>">
                         </div>
                       </div>
-                      <div class="col-lg-6">
-                        <div class="form-group focused">
-                          <label class="form-control-label" for="input-last-name">Last name</label>
-                          <input type="text" id="input-last-name" class="form-control form-control-alternative"
-                            placeholder="Last name" value="Jesse">
-                        </div>
-                      </div>
+
                     </div>
                   </div>
                   <hr class="my-4">

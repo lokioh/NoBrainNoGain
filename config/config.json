@@ -11,7 +11,8 @@
         "/Authentification": "Authentification",
         "/": "Home",
         "/logout": "",
-        "/Profil": "Profil"
+        "/Profil": "Profil",
+        "/sudoku": "Sudoku"
 
     }
 }
