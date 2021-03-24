@@ -1,3 +1,5 @@
+const { error } = require("node:console");
+
 $(document).ready(function () {
 
     function chartHome() {
@@ -6,12 +8,16 @@ $(document).ready(function () {
 
         $.ajax({
             async: false,
-            type: 'POST',
-            url: 'http://localhost:3000/',
+            type: "POST",
+            url: "http://localhost:3000/",
             data: "/",
             dataType: "json",
             success: function (response) {
                 dataScore = response;
+            }, 
+            
+            error: function(response, statut, erreur) {
+                console.log(erreur);
             }
         });
 
