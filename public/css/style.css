@@ -14,6 +14,7 @@ html, body {
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	font-family: merienda;
+	text-decoration: none;
 }
 
 .font-italic {
@@ -45,10 +46,11 @@ a {
 	transition: all 0.5s;
 }
 
-.title {
+.title a {
 	font-size: 90px;
 	margin-top: 100px;
 	position:static;
+	text-decoration: none;
 }
 
 p:nth-child(1) a {
@@ -204,7 +206,7 @@ p a {
 	padding-left: 15%;
 	padding-left: 15%;
 	padding-bottom: 15%;
-	margin-bottom: 250px;
+	margin-bottom: 50px;
 }
 
 /* Fin Contenu de la page */
@@ -227,7 +229,6 @@ p a {
 .button a {
 	text-decoration: none;
 	color: white;
-	font-weight: 600;
 	font-family: "Raleway", sans-serif;
 }
 
@@ -236,6 +237,7 @@ p a {
 	display: inline-block;
 	position: relative;
 	transition: 0.3s;
+	font-weight: bold;
 }
 
 .button span:after {
@@ -258,3 +260,31 @@ p a {
 }
 
 /* Fin bouton inscription */
+
+
+/* Début section chart */
+
+.chartTitle {
+	text-align: center;
+	margin-left: auto;
+	margin-left: auto;
+	margin-bottom: 80px;
+}
+
+#logoChart {
+	max-width: 200px;
+	margin-bottom: 80px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#chart {
+	max-width: 60%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 90px;
+}
+
+/* Fin section chart */
