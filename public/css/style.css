@@ -112,6 +112,8 @@ p a {
 /* Début Contenu de la page */
 
 
+/* Début titre nos jeux */
+
 .titleGames {
   font-family: 'Montserrat', sans-serif;
   transform: translate(-50%, -50%);
@@ -130,18 +132,29 @@ p a {
 	text-align: center;
 }
 
+
+/* Fin titre nos jeux */
+
+
+/* Début Jeux */
+
 .container-fluid {
 	margin-top: 50px;
+	max-width: 100%;
 }
+
 
 .subTitleG {
 	margin-top: 20px;
 }
 
+
 #descriptG {
 	padding-left: 80px;
 	padding-right: 80px;
 }
+
+/* Fin jeux */
 
 
 /* Début bouton jouer */
