@@ -27,7 +27,7 @@
   <link href="./css/footer.css" rel="stylesheet">
 
   <!-- Fichiers JS -->
-  <script type="text/javascript" src="./js/chart.js"></script>
+  <script type="text/javascript" src="./js/chartHome.js"></script>
 
 </head>
 
@@ -68,27 +68,35 @@
             <div class="row">
 
               <!-- Gallery item -->
-              <div class="col-xl col-lg-4 col-md-6 mb-4" >
+              <div class="col-xl col-lg-4 col-md-6 mb-4">
                 <div class="bg-white rounded shadow-sm"><img src="./img/jeux-images/sudoku.jpg" alt="Sudoku"
                     class="img-fluid card-img-top">
                   <h5 class="subTitleG">Sudoku</h5>
                   <p class="small text-muted mb-0" id="descriptG">
                     Vous aimez les chiffres ? <br> Battez tous les records avec le fameux sudoku
                   </p>
-                  <a href="/sudoku"><button class="buttonGames"><span>Jouez !</span></button></a>
+                  <% if(isLoggedIn) { %>
+                    <a href="/sudoku"><button class="buttonGames"><span>Jouez !</span></button></a>
+                    <% } else { %>
+                      <a href="/Authentification"><button class="buttonGames"><span>Connectez-vous !</span></button></a>
+                      <% } %>
                 </div>
               </div>
               <!-- End -->
 
               <!-- Gallery item -->
-              <div class="col-xl col-lg-4 col-md-6 mb-4" >
+              <div class="col-xl col-lg-4 col-md-6 mb-4">
                 <div class="bg-white rounded shadow-sm"><img src="./img/jeux-images/Dames.jpg" alt="Sudoku"
                     class="img-fluid card-img-top">
                   <h5 class="subTitleG">Dames</h5>
                   <p class="small text-muted mb-0" id="descriptG">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit
                   </p>
-                  <a href=""><button class="buttonGames"><span>Jouez !</span></button></a>
+                  <% if(isLoggedIn) { %>
+                    <a href=""><button class="buttonGames"><span>Jouez !</span></button></a>
+                    <% } else { %>
+                      <a href="/Authentification"><button class="buttonGames"><span>Connectez-vous !</span></button></a>
+                      <% } %>
                 </div>
               </div>
               <!-- End -->
@@ -105,7 +113,11 @@
                     Êtes-vous un stratège aguerri ? Imbattable ?<br> Venez nous le prouver
                     avec le jeu de stratégie indémodable que sont les échecs !
                   </p>
-                  <a href=""><button class="buttonGames"><span>Jouez !</span></button></a>
+                  <% if(isLoggedIn) { %>
+                    <a href=""><button class="buttonGames"><span>Jouez !</span></button></a>
+                    <% } else { %>
+                      <a href="/Authentification"><button class="buttonGames"><span>Connectez-vous !</span></button></a>
+                      <% } %>
                 </div>
               </div>
               <!-- End -->
@@ -118,7 +130,11 @@
                   <p class="small text-muted mb-0" id="descriptG">
 
                   </p>
-                  <a href="/puissance4"><button class="buttonGames"><span>Jouez !</span></button></a>
+                  <% if(isLoggedIn) { %>
+                    <a href="/puissance4"><button class="buttonGames"><span>Jouez !</span></button></a>
+                    <% } else { %>
+                      <a href="/Authentification"><button class="buttonGames"><span>Connectez-vous !</span></button></a>
+                      <% } %>
                 </div>
               </div>
               <!-- End -->
@@ -138,7 +154,7 @@
       <h1 class="chartTitle">Ici le tableau des scores des meilleurs joueurs de No Brain No Gain</h1>
       <canvas id="chart"></canvas>
     </div>
-    
+
 
     <!-- Fin du contenu de la page -->
 
