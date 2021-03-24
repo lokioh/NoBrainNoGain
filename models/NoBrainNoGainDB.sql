@@ -27,3 +27,5 @@ INSERT INTO Games (id_games, name_games) VALUES
 (3, 'dames'),
 (4, 'connect4');
 
+INSERT INTO User (id_user, name_user, mail_user, pwd_user, about_user, score_user, score_chess_user, score_connect4_user, score_dames_user, score_sudoku_user) VALUES
+(1, 'chomeur', 'test@mail.com', '$2b$10$H69/mgaqxg6NzosxEriK9.Uw8a./t0l01dmHqTwKszuY/CjTwE7sG');
