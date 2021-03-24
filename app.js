@@ -25,7 +25,7 @@ for (let key in config['routes']) {
 
         app.get(key, (req, res) => {
             user.logout(req, res)
-        })
+        });
         
     } else {
         

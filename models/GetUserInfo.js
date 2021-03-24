@@ -10,6 +10,7 @@ class GetUserInfo {
         })
     }
 
+    //méthode récupérant le nom de l'utilisateur
     getName(mail) {
         let statement = 'SELECT name_user FROM user WHERE mail_user = ?';
 

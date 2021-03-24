@@ -26,3 +26,4 @@ INSERT INTO Games (id_games, name_games) VALUES
 (2, 'chess'),
 (3, 'dames'),
 (4, 'connect4');
+

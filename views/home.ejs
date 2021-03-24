@@ -6,23 +6,28 @@
   <title>No Brain No Gain</title>
 
   <link rel="icon" type="image/png" href="./img/logo.png">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Merienda&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Audiowide|Iceland|Monoton|Pacifico|Press+Start+2P|Vampiro+One'
     rel='stylesheet' type='text/css'>
-
-  <!-- Fichier Pannel  -->
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+    integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
+    crossorigin="anonymous"></script>
 
-  <!-- Fichier CSS -->
 
+  <!-- Fichiers CSS -->
   <link href="./css/style.css" rel="stylesheet">
   <link href="./css/navbar.css" rel="stylesheet">
   <link href="./css/footer.css" rel="stylesheet">
+
+  <!-- Fichiers JS -->
+  <script type="text/javascript" src="./js/chart.js"></script>
 
 </head>
 
@@ -97,7 +102,7 @@
                     class="img-fluid card-img-top">
                   <h5 class="subTitleG">Échecs</h5>
                   <p class="small text-muted mb-0" id="descriptG">
-                    Êtes-vous un stratège aguerri ? Imbattable ?<br> Venez nous le prouver 
+                    Êtes-vous un stratège aguerri ? Imbattable ?<br> Venez nous le prouver
                     avec le jeu de stratégie indémodable que sont les échecs !
                   </p>
                   <a href=""><button class="buttonGames"><span>Jouez !</span></button></a>
@@ -111,7 +116,7 @@
                     class="img-fluid card-img-top">
                   <h5 class="subTitleG">Puissance 4</h5>
                   <p class="small text-muted mb-0" id="descriptG">
-                    
+
                   </p>
                   <a href="/puissance4"><button class="buttonGames"><span>Jouez !</span></button></a>
                 </div>
@@ -128,17 +133,11 @@
 
     <div class="end"></div>
 
+    <canvas id="chart"></canvas>
+
     <!-- Fin du contenu de la page -->
 
     <%- include('../views/layouts/footer.ejs'); -%>
-
-
-      <!-- Scripts -->
-
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
 
 
 </body>
