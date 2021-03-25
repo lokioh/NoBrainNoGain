@@ -11,6 +11,7 @@
         "/Authentification": "Authentification",
         "/": "Home",
         "/logout": "",
+        "/data": "Profil",
         "/Profil": "Profil",
         "/sudoku": "Sudoku",
         "/puissance4": "Connect4"

@@ -9,7 +9,7 @@ $(document).ready(function () {
         $.ajax({
             async: false,
             type: "POST",
-            url: "http://localhost:3000/Profil",
+            url: "http://localhost:3000/data",
             data: "",
             dataType: "json",
             success: function (response) {
@@ -32,8 +32,9 @@ $(document).ready(function () {
         let score_sudoku_user = dataRes[0].score_sudoku_user;
 
 
-        $('#aboutMeSection').attr('placeholder', about_user);
+        $('#aboutMeSection').text(about_user);
         $('#aboutMeSection2').text(about_user);
+        $('#inputNom').attr('value', name_user);
 
 
         let chartDataRes = {

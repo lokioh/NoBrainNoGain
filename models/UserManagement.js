@@ -1,4 +1,5 @@
 const db = require('mysql');
+const bcrypt = require('bcrypt');
 
 class UserManagement {
 
@@ -54,16 +55,19 @@ class UserManagement {
         });
     }
 
-    modifUserName(name, mailModif) {
-        let statement = 'UPDATE User SET name_user = ? WHERE mail_user = ?';
+    modifUser(nameModif, pwdModif, aboutMeModif, mail) {
+        let statement = 'UPDATE User SET name_user = ?, pwd_user = ?, about_user = ? WHERE mail_user = ?';
 
         return new Promise((resolve, reject) => {
-            this.connection.query(statement, [name, mailModif], (error) => {
-                if(error) return error;
+            bcrypt.hash(pwdModif, 10).then((hash_password_modif) => {
+                this.connection.query(statement, [nameModif, hash_password_modif, aboutMeModif, mail], (error, result) => {
+                    if(error) return error;
+                    return resolve(result.length > 0);
+                });
             });
         });
-        
     }
+
 }
 
 module.exports = UserManagement;

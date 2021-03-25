@@ -1,5 +1,5 @@
 const UserManagement = require('../models/UserManagement');
-const AuthentificationManagement = require('../models/AuthentificationManagement')
+const AuthentificationManagement = require('../models/AuthentificationManagement');
 
 class Profil {
 
@@ -10,39 +10,49 @@ class Profil {
     }
 
     post(req, res, config) {
-        let mailModif = req.body.emailModif;
         let nameModif = req.body.nameModif;
         let pwdModif = req.body.pwdModif;
+        let aboutMeModif = req.body.aboutMeModif;
         let mail = req.session.mail;
 
         let modelUser = new UserManagement(config);
-        let modelAuthentification = new AuthentificationManagement(config);
 
-            modelUser.getDataUser(req.session.mail).then((result) => {
-                res.send(result);
-            }).catch((error) => {
-                setImmediate(() => {
-                    throw error;
-                })
-            })
+        console.log('Réussie');
 
+        if(nameModif != null && pwdModif != null && aboutMeModif != null) {
 
-        if(nameModif != null) {
+            modelUser.modifUser(nameModif, pwdModif, aboutMeModif, mail).then((valid) => {
 
-            modelUser.modifUserName(nameModif, mail).then((valid) => {
-                if(!valid) {
+                console.log(valid);
+                if(valid) {
                     console.log('ERREUR : modification impossible.');
+                    res.redirect('/Profil');
                 } else {
+                    console.log('Modification du nom réussie');
+                    res.redirect('/Profil');
                     req.session.username = nameModif;
-                    res.redirect('/Authentification');
-                    console.log(nameModif);
                 }
+
             }).catch((error) => {
                 setImmediate(() => {
                     throw error;
                 })
             })
         }
+
+    }
+
+    getData(req, res, config) {
+
+        let modelUser = new UserManagement(config);
+
+        modelUser.getDataUser(req.session.mail).then((result) => {
+            res.send(result);
+        }).catch((error) => {
+            setImmediate(() => {
+                throw error;
+            })
+        })
 
     }
 }

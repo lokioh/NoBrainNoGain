@@ -29,16 +29,26 @@ for (let key in config['routes']) {
         })
         
     } else {
-        
+
         let controller = factory.makeController(config['routes'][key]);
 
-        app.get(key, (req, res) => {
-            controller.getView(req, res);
-        });
+        if(key == '/data'){
 
-        app.post(key, (req, res) => {
-            controller.post(req, res, config['db']);
-        });
+            app.post(key, (req, res) => {
+                controller.getData(req, res, config['db']);
+            });
+
+        } else {
+
+            app.get(key, (req, res) => {
+                controller.getView(req, res);
+            });
+    
+            app.post(key, (req, res) => {
+                controller.post(req, res, config['db']);
+            });
+
+        }
 
     }
 
