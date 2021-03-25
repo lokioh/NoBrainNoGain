@@ -17,18 +17,15 @@ class Profil {
 
         let modelUser = new UserManagement(config);
 
-        console.log('Réussie');
-
         if(nameModif != null && pwdModif != null && aboutMeModif != null) {
 
             modelUser.modifUser(nameModif, pwdModif, aboutMeModif, mail).then((valid) => {
 
-                console.log(valid);
                 if(valid) {
                     console.log('ERREUR : modification impossible.');
                     res.redirect('/Profil');
                 } else {
-                    console.log('Modification du nom réussie');
+                    console.log('Modification du nom réussie.');
                     res.redirect('/Profil');
                     req.session.username = nameModif;
                 }
