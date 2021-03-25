@@ -1,16 +1,16 @@
-const GetUserScore = require('../models/GetUserScore');
+const UserManagement = require('../models/UserManagement');
 
 class Home {
 
     getView(req, res) {
         res.render('home', {
-            user: req.session.username, isLoggedIn: req.session.isLogged
+            user: req.session.username, isLoggedIn: req.session.isLogged, mail: req.session.mail
         });
     }
 
     post(req, res, config) {
 
-        let model = new GetUserScore(config);
+        let model = new UserManagement(config);
 
         model.getMeanScore().then((result) => {
             res.send(result);

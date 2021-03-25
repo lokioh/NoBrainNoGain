@@ -1,5 +1,6 @@
 const express = require('express');
 const session = require('express-session');
+var Chart = require('chart.js');
 const app = express();
 const factory = require('./controllers/factory');
 const PORT = 3000;
@@ -25,7 +26,7 @@ for (let key in config['routes']) {
 
         app.get(key, (req, res) => {
             user.logout(req, res)
-        });
+        })
         
     } else {
         

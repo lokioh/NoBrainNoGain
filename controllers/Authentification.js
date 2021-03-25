@@ -1,5 +1,5 @@
 const AuthentificationManagement = require('../models/AuthentificationManagement');
-const GetUserInfo = require('../models/GetUserInfo');
+const UserManagement = require('../models/UserManagement');
 
 class Authentification {
 
@@ -18,7 +18,7 @@ class Authentification {
         let nameRegister = req.body.nameRegister;
 
         let model = new AuthentificationManagement(config)
-        let model1 = new GetUserInfo(config);
+        let model1 = new UserManagement(config);
 
 
         if (mailLogin != null && pwdLogin != null) {
@@ -40,6 +40,7 @@ class Authentification {
                             model1.getName(mailLogin).then(function (result) {
                                 req.session.isLogged = true;
                                 req.session.username = result;
+                                req.session.mail = mailLogin;
 
                                 console.log('Connexion réussie.');
                                 res.redirect('/');

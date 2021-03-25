@@ -13,11 +13,17 @@
 
   <!-- Fichier Pannel  -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+    integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
+    crossorigin="anonymous"></script>
 
   <!-- Fichier CSS -->
   <link href="./css/navbar.css" rel="stylesheet">
   <link href="./css/profil.css" rel="stylesheet">
   <link href="./css/footer.css" rel="stylesheet">
+
+  <!-- Fichiers JS -->
+  <script type="text/javascript" src="./js/chartProfil.js"></script>
 
 </head>
 
@@ -33,12 +39,11 @@
     <!-- Début contenu de la page -->
 
     <div class="main-content">
-      <!-- Top navbar -->
-
-      <!-- Header -->
       <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center">
+
         <!-- Mask -->
         <span class="mask bg-gradient-default opacity-8"></span>
+
         <!-- Header container -->
         <div class="container-fluid d-flex align-items-center">
           <div class="row">
@@ -47,11 +52,11 @@
               </h1>
               <p class="text-white mt-0 mb-5">Tu te trouve sur ta page de profil. C'est ici que tu vas pouvoir retrouver
                 tous tes scores et tes statistiques</p>
-              <a href="#!" class="btn btn-info">Modifier le profil</a>
             </div>
           </div>
         </div>
       </div>
+
       <!-- Page content -->
       <div class="container-fluid mt--7">
         <div class="row">
@@ -67,10 +72,6 @@
                 </div>
               </div>
               <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
-                <div class="d-flex justify-content-between">
-                  <a href="#" class="btn btn-sm btn-info mr-4">Connect</a>
-                  <a href="#" class="btn btn-sm btn-default float-right">Message</a>
-                </div>
               </div>
               <div class="card-body pt-0 pt-md-4">
                 <div class="row">
@@ -80,14 +81,6 @@
                         <span class="heading">22</span>
                         <span class="description">Friends</span>
                       </div>
-                      <div>
-                        <span class="heading">10</span>
-                        <span class="description">Photos</span>
-                      </div>
-                      <div>
-                        <span class="heading">89</span>
-                        <span class="description">Comments</span>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -96,54 +89,57 @@
                     <%=user%>
                   </h3>
                   <hr class="my-4">
-                  <p>Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and
-                    records all of his own music.</p>
+                  <p id="aboutMeSection2"></p>
                 </div>
               </div>
             </div>
           </div>
+
           <div class="col-xl-8 order-xl-1">
             <div class="card bg-secondary shadow">
               <div class="card-header bg-white border-0">
-                <div class="row align-items-center">
+                <div class="row">
                   <div class="col-8">
                     <h3 class="mb-0">Mon profil</h3>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <form>
+                <form method="POST">
                   <h6 class="heading-small text-muted mb-4">Mes informations</h6>
-                  <div class="pl-lg-4">
-                    <div class="row">
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <label class="form-control-label" for="input-email">Email</label>
-                          <input type="email" id="input-email" class="form-control form-control-alternative"
-                            placeholder="">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-lg-6">
-                        <div class="form-group focused">
-                          <label class="form-control-label" for="input-first-name">Nom</label>
-                          <input type="text" id="input-first-name" class="form-control form-control-alternative"
-                            placeholder="name" value="<%=user%>">
-                        </div>
-                      </div>
 
+                  <div class="row">
+                    <div class="col">
+                      <label class="form-control-label" for="input-email">Email</label>
+                      <input type="email" id="input-email" name="emailModif" class="form-control form-control-alternative"
+                        placeholder="<%=mail%>">
                     </div>
                   </div>
 
+                  <div class="row">
+                    <div class="col">
+                      <label class="form-control-label" for="input-first-name">Nom</label>
+                      <input type="text" id="input-first-name" name="nameModif" class="form-control form-control-alternative"
+                        placeholder="<%=user%>">
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-first-name">Mot de passe</label>
+                        <input type="password" id="input-first-name" name="pwdModif" placeholder="Votre ancien mot de passe" class="form-control form-control-alternative">
+                      </div>
+                    </div>
+                  </div>
+
+
                   <!-- Description -->
                   <h6 class="heading-small text-muted mb-4">À propos de moi</h6>
-                  <div class="pl-lg-4">
-                    <div class="form-group focused">
-                      <label>À propos de moi</label>
-                      <textarea rows="4" class="form-control form-control-alternative"
-                        placeholder="A few words about you ...">A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
-                    </div>
+                  <div class="">
+                    <label>À propos de moi</label>
+                    <textarea rows="4" class="form-control form-control-alternative" name="aboutMeModif" id="aboutMeSection"></textarea>
+                    <button type="submit">Modifier le profil</button>
                   </div>
                 </form>
               </div>
@@ -152,6 +148,16 @@
         </div>
       </div>
     </div>
+
+
+    <!-- Début chart -->
+
+    <div class="chart">
+      <h1 class="statsTitle">Voici tes stats petit joueur !</h1>
+      <canvas id="chartProfil"></canvas>
+    </div>
+
+    <!-- Fin chart -->
 
     <!-- Fin contenu de la page -->
 
