@@ -21,11 +21,11 @@ CREATE TABLE IF NOT EXISTS Games (
 
 -- Insertion des données dans la bdd
 
-INSERT INTO Games (id_games, name_games) VALUES
-(1, 'sudoku'),
-(2, 'chess'),
-(3, 'dames'),
-(4, 'connect4');
+INSERT INTO Games (id_games, name_games, rate_use_games) VALUES
+(1, 'sudoku', 0),
+(2, 'chess', 0),
+(3, 'dames', 0),
+(4, 'connect4', 0);
 
 INSERT INTO User (id_user, name_user, mail_user, pwd_user) VALUES
 (1, 'chomeur', 'test@mail.com', '$2b$10$H69/mgaqxg6NzosxEriK9.Uw8a./t0l01dmHqTwKszuY/CjTwE7sG');

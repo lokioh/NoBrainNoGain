@@ -1,8 +1,9 @@
 const express = require('express');
 const session = require('express-session');
-var Chart = require('chart.js');
 const app = express();
 const factory = require('./controllers/factory');
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
 const PORT = 3000;
 
 app.set('view engine', 'ejs');
@@ -32,10 +33,16 @@ for (let key in config['routes']) {
 
         let controller = factory.makeController(config['routes'][key]);
 
-        if(key == '/data'){
+        if(key == '/dataProfil'){
 
             app.post(key, (req, res) => {
-                controller.getData(req, res, config['db']);
+                controller.getDataProfil(req, res, config['db']);
+            });
+
+        } else if (key == '/dataHome'){ 
+
+            app.post(key, (req, res) => {
+                controller.getDataHome(req, res, config['db']);
             });
 
         } else {

@@ -1,5 +1,4 @@
 const UserManagement = require('../models/UserManagement');
-const AuthentificationManagement = require('../models/AuthentificationManagement');
 
 class Profil {
 
@@ -39,7 +38,7 @@ class Profil {
 
     }
 
-    getData(req, res, config) {
+    getDataProfil(req, res, config) {
 
         let modelUser = new UserManagement(config);
 

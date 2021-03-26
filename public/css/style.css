@@ -300,4 +300,12 @@ p a {
 	margin-bottom: 90px;
 }
 
+#chart2 {
+	max-width: 60%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 90px;
+}
+
 /* Fin section chart */

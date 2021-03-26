@@ -20,6 +20,7 @@ $(document).ready(function () {
             }
         });
 
+
         let ctx = $('#chart');
         let name_user = [];
         let score_user = [];
@@ -50,8 +51,73 @@ $(document).ready(function () {
             data: chartData
         });
 
+        
+        let dataUse;
 
+        $.ajax({
+            async: false,
+            type: "POST",
+            url: "http://localhost:3000/dataHome",
+            data: "",
+            dataType: "json",
+            success: function (response) {
+                dataUse = response;
+            },
 
+            error: function (response, statut, erreur) {
+                console.log(erreur);
+            }
+        });
+
+        console.log(dataUse);
+
+        let ctx2 = $('#chart2');
+        let chess = dataUse[1].rate_use_games;
+        let sudoku = dataUse[0].rate_use_games;
+        let dames = dataUse[2].rate_use_games;
+        let connect4 = dataUse[3].rate_use_games;
+
+        var chartPieData = {
+            labels: [
+                'Sudoku',
+                'Échecs',
+                'Dames',
+                'Puissance 4'
+            ],
+            
+            datasets: [
+                {
+                    backgroundColor: [
+                        'rgba(240, 230, 140, 0.2)',
+                        'rgba(128, 0, 128, 0.2)',
+                        'rgba(154, 205, 50, 0.2)',
+                        'rgba(178, 34, 34, 0.2)'
+                    ],
+
+                    borderColor: [
+                        'rgba(240, 230, 140, 1)',
+                        'rgba(128, 0, 128, 1)',
+                        'rgba(154, 205, 50, 1)',
+                        'rgba(178, 34, 34, 1)'
+                    ],
+
+                    hoverBackgroundColor: [
+                        'rgba(240, 230, 140, 1)',
+                        'rgba(128, 0, 128, 1)',
+                        'rgba(154, 205, 50, 1)',
+                        'rgba(178, 34, 34, 1)'
+                    ],
+                    borderWidth: 1,
+                    data: [sudoku, chess, dames, connect4]
+                }
+            ]
+
+        };
+
+        let pieChart = new Chart(ctx2, {
+            type: 'pie',
+            data: chartPieData
+        });
 
     }
 

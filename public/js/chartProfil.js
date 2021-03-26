@@ -9,7 +9,7 @@ $(document).ready(function () {
         $.ajax({
             async: false,
             type: "POST",
-            url: "http://localhost:3000/data",
+            url: "http://localhost:3000/dataProfil",
             data: "",
             dataType: "json",
             success: function (response) {

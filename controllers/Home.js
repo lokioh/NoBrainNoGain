@@ -1,4 +1,5 @@
 const UserManagement = require('../models/UserManagement');
+const GamesManagement = require('../models/GamesManagement');
 
 class Home {
 
@@ -10,9 +11,22 @@ class Home {
 
     post(req, res, config) {
 
-        let model = new UserManagement(config);
+        let modelUser = new UserManagement(config);
 
-        model.getMeanScore().then((result) => {
+        modelUser.getMeanScore().then((result) => {
+            res.send(result);
+        }).catch((error) => {
+            setImmediate(() => {
+                throw error;
+            })
+        })
+    }
+
+    getDataHome(req, res, config) {
+
+        let modelGames = new GamesManagement(config);
+
+        modelGames.getUseGames().then((result) => {
             res.send(result);
         }).catch((error) => {
             setImmediate(() => {

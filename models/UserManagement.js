@@ -61,7 +61,7 @@ class UserManagement {
         return new Promise((resolve, reject) => {
             bcrypt.hash(pwdModif, 10).then((hash_password_modif) => {
                 this.connection.query(statement, [nameModif, hash_password_modif, aboutMeModif, mail], (error, result) => {
-                    if(error) return error;
+                    if(error) return reject;
                     return resolve(result.length > 0);
                 });
             });

@@ -182,12 +182,28 @@ Game.prototype.switchRound = function(round) {
     }
 }
 
+let scoreUser;
+
 Game.prototype.updateStatus = function() {
     // Human won
     if (that.board.score() == -that.score) {
         that.status = 1;
         that.markWin();
         alert("You have won!");
+        
+        scoreUser = 10;
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:3000/puissance4",
+            data: {scoreUserA: scoreUser},
+            success: function (response) {
+                console.log("reçu");
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
     }
 
     // Computer won
@@ -201,6 +217,8 @@ Game.prototype.updateStatus = function() {
     if (that.board.isFull()) {
         that.status = 3;
         alert("Tie!");
+
+        scoreUser = 5;
     }
 }
 
@@ -230,6 +248,23 @@ Game.prototype.restartGame = function() {
  */
 function Start() {
     window.Game = new Game();
+
+    let gameUseConnect4 = {"use": 1};
+    JSON.stringify(gameUseConnect4);
+
+    console.log(gameUseConnect4);
+
+    $.ajax({
+        type: "POST",
+        url: "http://localhost:3000/puissance4",
+        data: gameUseConnect4,
+        success: function (response) {
+            console.log('Data SEND');
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
 }
 
 window.onload = function() {
