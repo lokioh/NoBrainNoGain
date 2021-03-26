@@ -1,9 +1,9 @@
 const express = require('express');
 const session = require('express-session');
 const app = express();
+const server = require('http').createServer(app);
+const io =require('socket.io')(server, { cors: { origin: "*" }})
 const factory = require('./controllers/factory');
-const server = require('http').Server(app);
-const io = require('socket.io')(server);
 const PORT = 3000;
 
 app.set('view engine', 'ejs');
@@ -45,6 +45,12 @@ for (let key in config['routes']) {
                 controller.getDataHome(req, res, config['db']);
             });
 
+        } else if (key == '/test') { 
+
+            app.get(key, (req, res) => {
+                controller.getLaVue(req, res);
+            });
+
         } else {
 
             app.get(key, (req, res) => {
@@ -58,7 +64,29 @@ for (let key in config['routes']) {
         }
 
     }
-
 }
 
-app.listen(PORT);
+server.listen(PORT, function() {
+    console.log(`Listening on port ${PORT}`);
+    console.log(`http://localhost:${PORT}`);
+});
+
+
+
+
+io.on('connection', (socket) => {
+    
+    console.log('User connected: ' + socket.id);
+
+    socket.emit('message', 'hey');
+
+    socket.on('message', (data) => {
+        io.emit('message', data);
+    });
+
+    socket.on('disconnect', () => {
+        console.log('User disconnected: ' + socket.id)
+    });
+});
+
+module.exports.io = io;

@@ -1,53 +1,74 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>No Brain No Gain</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="./css/gamesCSS/connect4.css">
-    </head>
-    <body>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>No Brain No Gain</title>
+
+    <link rel="icon" type="image/png" href="./img/logo.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
         
-        <div id="container">
-            <h1 class="header-text">Connect four</h1>
+    <!-- NavBar -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Audiowide|Iceland|Monoton|Pacifico|Press+Start+2P|Vampiro+One'
+        rel='stylesheet' type='text/css'>
 
-            <div class="box-left">
-                <table id="game_board" cellpadding="0"></table> 
-                <div id="loading">AI is thinking...</div>
-            </div>
+    <!-- Fichiers CSS -->
+    <link rel="stylesheet" href="./css/gamesCSS/connect4.css" />
+    <link href="./css/navbar.css" rel="stylesheet">
 
-            <div class="box-right">
-                <div id="options">
-                    <p class="header">Difficulty</p>
-                    <p>
-                        <select id="difficulty" autocomplete="off">
-                            <option value="4" selected="selected">Easy</option>
-                            <option value="6">Moderate</option>
-                            <option value="8">Hard</option>
-                        </select>
-                    </p>
-                    <p><button class="save" onclick="Game.restartGame();" type="submit">Restart game</button></p>
+    <style>
+
+    </style>
+</head>
+
+
+<body>
+
+    <%- include('../views/layouts/navbar.ejs', {button: '' , isLoggedIn: true }); -%>
+
+        <div class="connect4">
+            <div class="container text-center" id="app">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="alert alert-info">
+                            <strong>Joueur: </strong> {{currentPlayer === PLAYER_1s ? 'Player 1' : 'Player 2'}}
+                            <br>
+                            <img :src="cellImage(currentPlayer)" alt="" class="img-fluid" style="max-width: 70px;">
+                        </div>
+                    </div>
                 </div>
-
-                <!--div id="debug">
-                    <p><strong>AI debugging</strong></p>
-                    <p>Generated with <span id="ai-iterations">?</span> iterations</p>
-                    <p>Measured with <span id="ai-time">?</span></p>
-                    <p><span id="ai-column">Column: ?</span></p>
-                    <p><span id="ai-score">Score: ?</span></p>
-                    <br/>
-                    <p>Status: <span id="status" class="status-running">running</span></p>
-                </div-->
+                <div id="myDIV" class="table-responsive col-12 mx-auto" class="innerText">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th v-for="i in COLUMNS">
+                                    <button :disabled="!canPlay" @click="makeMove(i)" id="hide"
+                                        class="btn btn-warning">&nbsp;<i class="fa fa-arrow-down"></i></button>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="row in board">
+                                <td v-for="cell in row">
+                                    <img class="img-fluid img-player" :src="cellImage(cell)" alt="">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
-        <script>
-        function selectAlgorithm(that) {
-            window.location = '../' + that.value + '/connect4.ejs';
-        };
-        </script>
 
-        <script src="./js/games/connect4/board.js"></script>
-        <script src="./js/games/connect4/connect-four.js"></script>
-    </body>
+        <!-- Fichiers JS -->
+        <script src="./js/games/connect4/vue.js"></script>
+        <script src="./js/games/connect4/sweetalert2.all.min.js"></script>
+        <script src="./js/games/connect4/connect4.js"></script>
+</body>
+
 </html>

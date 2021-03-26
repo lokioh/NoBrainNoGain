@@ -15,7 +15,8 @@
         "/dataHome": "Home",
         "/Profil": "Profil",
         "/sudoku": "Sudoku",
-        "/puissance4": "Connect4"
+        "/puissance4": "Connect4",
+        "/test": "Home"
 
     }
 }

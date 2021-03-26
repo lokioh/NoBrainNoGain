@@ -2,7 +2,8 @@ $(document).ready(function () {
 
     function chartHome() {
 
-
+        let socket = io();
+        
         let dataScore;
 
         $.ajax({

@@ -1,5 +1,6 @@
 const UserManagement = require('../models/UserManagement');
 const GamesManagement = require('../models/GamesManagement');
+var io = require('../app').io
 
 class Home {
 
@@ -33,6 +34,14 @@ class Home {
                 throw error;
             })
         })
+    }
+
+    getLaVue(req, res){
+        res.render('test');
+
+        // io.socket.on('connection', (socket) => {
+        //     console.log('tt');
+        // });
     }
 
 }
