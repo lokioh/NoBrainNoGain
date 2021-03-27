@@ -3,7 +3,7 @@ $(document).ready(function () {
     function chartHome() {
 
         let socket = io();
-        
+
         let dataScore;
 
         $.ajax({
@@ -41,6 +41,7 @@ $(document).ready(function () {
                     hoverBackgroundColor: 'rgba(137, 201, 227, 1)',
                     borderColor: 'rgba(137, 201, 227, 1)',
                     borderWidth: 1,
+                    minPercentage: 0.5,
                     data: score_user
                 }
             ]
@@ -49,10 +50,19 @@ $(document).ready(function () {
 
         let barGraph = new Chart(ctx, {
             type: 'bar',
-            data: chartData
+            data: chartData,
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
         });
 
-        
+
         let dataUse;
 
         $.ajax({
@@ -85,7 +95,7 @@ $(document).ready(function () {
                 'Dames',
                 'Puissance 4'
             ],
-            
+
             datasets: [
                 {
                     backgroundColor: [
