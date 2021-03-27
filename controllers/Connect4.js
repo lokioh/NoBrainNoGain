@@ -31,8 +31,6 @@ class Connect4 {
         let scoreConnect4 = req.body.scoreConnect4;
         let mail = req.session.mail;
 
-        console.log(scoreConnect4);
-
         let modelUser = new UserManagement(config);
 
         modelUser.updateUserScoreConnect4(mail, scoreConnect4).then((valid) => {
