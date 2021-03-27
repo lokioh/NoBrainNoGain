@@ -5,18 +5,18 @@ CREATE TABLE IF NOT EXISTS User(
     name_user TEXT NOT NULL,
     mail_user TEXT NOT NULL,
     pwd_user TEXT NOT NULL,
-    about_user TEXT, 
-    score_user INT,
-    score_chess_user INT,
-    score_connect4_user INT,
-    score_dames_user INT,
-    score_sudoku_user INT
+    about_user TEXT NOT NULL, 
+    score_user INT NOT NULL,
+    score_chess_user INT NOT NULL,
+    score_connect4_user INT NOT NULL,
+    score_dames_user INT NOT NULL,
+    score_sudoku_user INT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS Games (
     id_games INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name_games TEXT NOT NULL,
-    rate_use_games INT
+    rate_use_games INT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Insertion des données dans la bdd
