@@ -59,10 +59,21 @@ $(document).ready(function () {
 	// do not pick up pieces if the game is over
 	// only pick up pieces for White
 	var onDragStart = function (source, piece, position, orientation) {
-		if (game.in_checkmate() === true) {
-			$('#gameover').show();
-			$("#gameover").html('Vous avez gagné !');
-			console.log(globalVariable.scoreChess)
+		if (game.in_checkmate() === true || game.game_over() === true) {
+
+			let name = makeAImove.name;
+			console.log(name);
+
+			if(name == 'makeAImove') {
+				$('#gameover').show();
+				$("#gameover").html('Vous avez perdu !');
+				console.log(globalVariable.scoreChess)
+			} else {
+				$('#gameover').show();
+				$("#gameover").html('Vous avez gagné !');
+				console.log(globalVariable.scoreChess)
+			}
+
 			return false;
 		} else if (game.in_draw() === true) {
 			$('#gameover').show();
@@ -81,11 +92,6 @@ $(document).ready(function () {
 					console.log(error);
 				}
 			});
-
-			return false;
-		} else if (game.game_over() === true) {
-			$('#gameover').show();
-			$("#gameover").html("Vous avez perdu !");
 
 			return false;
 		}
@@ -282,6 +288,8 @@ $(document).ready(function () {
 		var bestMove = calculateBestMove();
 		game.move(bestMove);
 		board.position(game.fen());
+
+		console.log(makeAImove.name);
 	};
 
 
