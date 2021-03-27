@@ -51,6 +51,12 @@ for (let key in config['routes']) {
                 controller.getScoreConnect4(req, res, config['db']);
             });
 
+        } else if(key == '/dataScoreChess') {
+
+            app.post(key, (req, res) => {
+                controller.getScoreChess(req, res, config['db']);
+            });
+
         } else {
 
             app.get(key, (req, res) => {

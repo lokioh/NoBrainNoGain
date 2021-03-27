@@ -51,8 +51,6 @@ new Vue({
             });
             this.canPlay = true;
             let ui = this.isCpuPlaying = !!result.value;
-
-            console.log(ui);
         },
         countUp(x, y, player, board) {
             let startY = (y - CONNECT >= 0) ? y - CONNECT + 1 : 0;

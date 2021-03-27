@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>No Brain No Gain</title>
+
+    <link rel="icon" type="image/png" href="./img/logo.png">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <script type="text/javascript" src="./js/games/chess/chessAI.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/gamesCSS/chessCSS/chessboard-0.3.0.css">
+
+    <!-- NavBar -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Audiowide|Iceland|Monoton|Pacifico|Press+Start+2P|Vampiro+One'
+        rel='stylesheet' type='text/css'>
+
+    <!-- Fichiers CSS -->
+    <link rel="stylesheet" type="text/css" href="./css/gamesCSS/chessCSS/chessAI.css">
+    <link href="./css/navbar.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <%- include('../views/layouts/navbar.ejs', {button: '' , isLoggedIn: true }); -%>
+
+        <div class="menu" id="difficulty">
+            <br>
+            <h1 class="titleD">Choisissez une difficulté :</h1>
+            <hr><br>
+            <button type="button" class="btn easy btn-success btn-xlarge" id="easyBtn">Facile<br>(15 points)</button>
+            <br><br>
+            <button type="button" class="btn medium btn-warning btn-xlarge" id="mediumBtn">Normal<br>(30
+                points)</button>
+            <br><br>
+            <button type="button" class="btn hard btn-danger btn-xlarge" id="hardBtn">Difficile<br>(60 points)</button>
+        </div>
+
+        <div class="position-relative">
+            <div id="board" style="width: 600px"></div>
+            <hr>
+            <div id="gameover" class="alert alert-primary hide" role="alert"><strong></strong></div>
+            <div id="restart" class="restartGame">
+                <div class="position-absolute bottom-0 start-50 translate-middle-x">
+                    <button type="button" class="btn medium btn-danger btn-xlarge" id="rejouer">Rejouer ?</button>
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+
+            let globalVariable = {
+                scoreChess: 0
+            }
+
+            $('#rejouer').on('click', function () {
+
+                let useChess = { 'useChess': 1 };
+
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:3000/echecs",
+                    data: useChess,
+                    success: function (response) {
+                        console.log('envoyé');
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            });
+            
+
+            $('#easyBtn').on('click', function() {
+                globalVariable.scoreChess =+ 15;
+            });
+
+            $('#mediumBtn').on('click', function() {
+                globalVariable.scoreChess =+ 30;
+            });
+
+            $('#hardBtn').on('click', function() {
+                globalVariable.scoreChess =+ 60;
+            });
+
+        </script>
+
+        <!-- Fichiers JS -->
+        <script type="text/javascript" src='./js/games/chess/chessboard-0.3.0.js'> </script>
+        <script type="text/javascript" src='./js/games/chess/chess.js'> </script>
+</body>
+
+</html>

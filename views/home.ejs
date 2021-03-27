@@ -115,7 +115,7 @@
                     avec le jeu de stratégie indémodable que sont les échecs !
                   </p>
                   <% if(isLoggedIn) { %>
-                    <a href=""><button class="buttonGames"><span>Jouez !</span></button></a>
+                    <a href="/echecs"><button id="chessBtn" class="buttonGames"><span>Jouez !</span></button></a>
                     <% } else { %>
                       <a href="/Authentification"><button class="buttonGames"><span>Connectez-vous !</span></button></a>
                       <% } %>
@@ -165,27 +165,46 @@
     <%- include('../views/layouts/footer.ejs'); -%>
 
 
-    <script>
+      <script>
 
-      $('#connect4Btn').on('click', function() {
 
-        let useConnect4 = {'useConnect4': 1};
+        $('#chessBtn').on('click', function () {
 
-        $.ajax({
-          type: "POST",
-          url: "http://localhost:3000/puissance4",
-          data: useConnect4,
-          success: function (response) {
-            console.log('envoyé');
-          },
-          error: function(error) {
-            console.log(error);
-          }
+          let useChess = { 'useChess': 1 };
+
+          $.ajax({
+            type: "POST",
+            url: "http://localhost:3000/echecs",
+            data: useChess,
+            success: function (response) {
+              console.log('envoyé');
+            },
+            error: function (error) {
+              console.log(error);
+            }
+          });
+
         });
 
-      });
+        $('#connect4Btn').on('click', function () {
 
-    </script>
+          let useConnect4 = { 'useConnect4': 1 };
+
+          $.ajax({
+            type: "POST",
+            url: "http://localhost:3000/puissance4",
+            data: useConnect4,
+            success: function (response) {
+              console.log('envoyé');
+            },
+            error: function (error) {
+              console.log(error);
+            }
+          });
+
+        });
+
+      </script>
 
 </body>
 

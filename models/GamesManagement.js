@@ -9,7 +9,7 @@ class GamesManagement {
         })
     }
 
-    updateUseConnect4(use, gameName) {
+    updateUse(use, gameName) {
         let statement = 'UPDATE games SET rate_use_games = rate_use_games + ? WHERE name_games = ?';
 
         return new Promise((resolve, reject) => {
@@ -31,6 +31,7 @@ class GamesManagement {
         });
 
     }
+
 }
 
 module.exports = GamesManagement;
