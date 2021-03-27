@@ -45,6 +45,7 @@
             <div id="restart" class="restartGame">
                 <div class="position-absolute bottom-0 start-50 translate-middle-x">
                     <button type="button" class="btn medium btn-danger btn-xlarge" id="rejouer">Rejouer ?</button>
+                    <button type="button" class="btn medium btn-danger btn-xlarge" id="quit">Quitter</button>
                 </div>
             </div>
         </div>
@@ -74,6 +75,9 @@
                 });
             });
             
+            $('#quit').on('click', function() {
+                location.replace('/');
+            });
 
             $('#easyBtn').on('click', function() {
                 globalVariable.scoreChess =+ 15;
