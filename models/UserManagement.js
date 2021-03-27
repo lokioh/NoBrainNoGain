@@ -68,6 +68,17 @@ class UserManagement {
         });
     }
 
+    updateUserScoreConnect4(mail, score) {
+        let statement = 'UPDATE User SET score_connect4_user = score_connect4_user + ? WHERE mail_user = ?';
+
+        return new Promise((resolve, reject) => {
+            this.connection.query(statement, [score, mail], (error, result) => {
+                if(error) return reject;
+                return resolve(result.length > 0);
+            })
+        });
+    }
+
 }
 
 module.exports = UserManagement;

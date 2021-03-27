@@ -16,7 +16,6 @@
         "/Profil": "Profil",
         "/sudoku": "Sudoku",
         "/puissance4": "Connect4",
-        "/test": "Home"
-
+        "/dataScoreConnect4": "Connect4"
     }
 }

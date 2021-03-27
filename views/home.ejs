@@ -70,8 +70,8 @@
 
               <!-- Gallery item -->
               <div class="col-xl col-lg-4 col-md-6 mb-4">
-                <div class="bg-white rounded shadow-sm"><img src="./img/jeux-images/sudoku.jpg" alt="Sudoku"
-                    class="img-fluid card-img-top">
+                <div class="bg-white rounded shadow-sm"><img src="./img/jeux-images/sudoku.png" alt="Sudoku"
+                    class="img-fluid card-img-top" id="frame">
                   <h5 class="subTitleG">Sudoku</h5>
                   <p class="small text-muted mb-0" id="descriptG">
                     Vous aimez les chiffres ? <br> Battez tous les records avec le fameux sudoku
@@ -87,8 +87,8 @@
 
               <!-- Gallery item -->
               <div class="col-xl col-lg-4 col-md-6 mb-4">
-                <div class="bg-white rounded shadow-sm"><img src="./img/jeux-images/Dames.jpg" alt="Sudoku"
-                    class="img-fluid card-img-top">
+                <div class="bg-white rounded shadow-sm"><img src="./img/jeux-images/Dames.jpg" alt="Dames"
+                    class="img-fluid card-img-top" id="frame">
                   <h5 class="subTitleG">Dames</h5>
                   <p class="small text-muted mb-0" id="descriptG">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit
@@ -107,8 +107,8 @@
             <div class="row">
               <!-- Gallery item -->
               <div class="col-xl col-lg-4 col-md-6 mb-4">
-                <div class="bg-white rounded shadow-sm"><img src="./img/jeux-images/echecs.jpg" alt="Sudoku"
-                    class="img-fluid card-img-top">
+                <div class="bg-white rounded shadow-sm"><img src="./img/jeux-images/chess.jpg" alt="Échecs"
+                    class="img-fluid card-img-top" id="frame">
                   <h5 class="subTitleG">Échecs</h5>
                   <p class="small text-muted mb-0" id="descriptG">
                     Êtes-vous un stratège aguerri ? Imbattable ?<br> Venez nous le prouver
@@ -125,14 +125,15 @@
 
               <!-- Gallery item -->
               <div class="col-xl col-lg-4 col-md-6 mb-4">
-                <div class="bg-white rounded shadow-sm"><img src="./img/jeux-images/morpion.jpg" alt="Sudoku"
-                    class="img-fluid card-img-top">
+                <div class="bg-white rounded shadow-sm"><img src="./img/jeux-images/connect4.png" alt="Puissance 4"
+                    class="img-fluid card-img-top" id="frame">
                   <h5 class="subTitleG">Puissance 4</h5>
                   <p class="small text-muted mb-0" id="descriptG">
-
+                    Venez passez votre temps dans notre magnifique puissance 4!<br>
+                    Attention vous ne gagneree aucun point si vous jouez en multijoueurs!
                   </p>
                   <% if(isLoggedIn) { %>
-                    <a href="/puissance4"><button class="buttonGames"><span>Jouez !</span></button></a>
+                    <a href="/puissance4"><button id="connect4Btn" class="buttonGames"><span>Jouez !</span></button></a>
                     <% } else { %>
                       <a href="/Authentification"><button class="buttonGames"><span>Connectez-vous !</span></button></a>
                       <% } %>
@@ -163,7 +164,28 @@
 
     <%- include('../views/layouts/footer.ejs'); -%>
 
-    
+
+    <script>
+
+      $('#connect4Btn').on('click', function() {
+
+        let useConnect4 = {'useConnect4': 1};
+
+        $.ajax({
+          type: "POST",
+          url: "http://localhost:3000/puissance4",
+          data: useConnect4,
+          success: function (response) {
+            console.log('envoyé');
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
+
+      });
+
+    </script>
 
 </body>
 

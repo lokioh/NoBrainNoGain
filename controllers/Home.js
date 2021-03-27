@@ -36,14 +36,6 @@ class Home {
         })
     }
 
-    getLaVue(req, res){
-        res.render('test');
-
-        // io.socket.on('connection', (socket) => {
-        //     console.log('tt');
-        // });
-    }
-
 }
 
 module.exports = Home;

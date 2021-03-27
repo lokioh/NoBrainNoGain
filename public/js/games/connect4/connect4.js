@@ -50,7 +50,9 @@ new Vue({
                 confirmButtonText: 'Moi Vs Ordinateur'
             });
             this.canPlay = true;
-            this.isCpuPlaying = !!result.value;
+            let ui = this.isCpuPlaying = !!result.value;
+
+            console.log(ui);
         },
         countUp(x, y, player, board) {
             let startY = (y - CONNECT >= 0) ? y - CONNECT + 1 : 0;
@@ -131,17 +133,28 @@ new Vue({
                     }
                 }
             }
+
+            let scoreConnect4 = {'scoreConnect4': 5};
+            
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:3000/dataScoreConnect4",
+                    data: scoreConnect4,
+                    success: function (response) {
+                        console.log('envoyé');
+                    }
+                });
+
+
             return true;
         },
         getRandomNumberBetween(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         },
         selectPlayer() {
-            if (this.getRandomNumberBetween(0, 1) === 0) {
-                this.currentPlayer = PLAYER_1;
-            } else {
-                this.currentPlayer = PLAYER_2;
-            }
+
+            this.currentPlayer = PLAYER_1;
+
         },
         togglePlayer() {
             this.currentPlayer = this.getAdversary(this.currentPlayer);
@@ -191,6 +204,23 @@ new Vue({
         async checkGameStatus() {
             if (this.isWinner(this.currentPlayer, this.board)) {
                 await this.showWinner();
+                
+                console.log(this.currentPlayer);
+
+                if(this.currentPlayer == 'o') {
+
+                    let scoreConnect4 = {'scoreConnect4': 15};
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/dataScoreConnect4",
+                        data: scoreConnect4,
+                        success: function (response) {
+                            console.log('envoyé');
+                        }
+                    });
+                }
+
                 return true;
             } else if (this.isTie(this.board)) {
                 await this.showTie();
@@ -211,7 +241,22 @@ new Vue({
                 confirmButtonText: 'Oui'
             });
             if (result.value) {
+
+                let useConnect4 = {'useConnect4': 1};
+            
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:3000/puissance4",
+                    data: useConnect4,
+                    success: function (response) {
+                        console.log('envoyé');
+                    }
+                });
+
                 this.resetGame();
+            } else {
+                // si l'utilisateur ne veut pas rejouer redirect
+                location.replace('/');
             }
         },
         async makeCpuMove() {

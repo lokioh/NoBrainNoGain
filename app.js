@@ -45,10 +45,10 @@ for (let key in config['routes']) {
                 controller.getDataHome(req, res, config['db']);
             });
 
-        } else if (key == '/test') { 
+        } else if(key == '/dataScoreConnect4') {
 
-            app.get(key, (req, res) => {
-                controller.getLaVue(req, res);
+            app.post(key, (req, res) => {
+                controller.getScoreConnect4(req, res, config['db']);
             });
 
         } else {
