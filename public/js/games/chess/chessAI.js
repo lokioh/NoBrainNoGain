@@ -59,26 +59,36 @@ $(document).ready(function () {
 	// do not pick up pieces if the game is over
 	// only pick up pieces for White
 	var onDragStart = function (source, piece, position, orientation) {
-		if (game.in_checkmate() === true || game.game_over() === true) {
 
-			let name = makeAImove.name;
-			console.log(name);
+		if (game.in_checkmate() === true) {
 
-			if(name == 'makeAImove') {
-				$('#gameover').show();
-				$("#gameover").html('Vous avez perdu !');
-				console.log(globalVariable.scoreChess)
-			} else {
+			if (globalVariable.player == 'human') {
+
+				let scoreChessJson = {'scoreChess': globalVariable.scoreChess}
+
+				$.ajax({
+					type: "POST",
+					url: "http://localhost:3000/dataScoreChess",
+					data: scoreChessJson,
+					success: function (response) {
+						console.log('envoyé');
+					},
+					error: function (error) {
+						console.log(error);
+					}
+				});
+				
 				$('#gameover').show();
 				$("#gameover").html('Vous avez gagné !');
-				console.log(globalVariable.scoreChess)
+				return false;
+			} else if (globalVariable.player == 'AI') {
+				$('#gameover').show();
+				$("#gameover").html('Vous avez perdu !');
+				return false;
 			}
 
-			return false;
 		} else if (game.in_draw() === true) {
-			$('#gameover').show();
-			$("#gameover").html("Match nul !");
-
+			
 			let scoreChess = { 'scoreChess': 5 };
 
 			$.ajax({
@@ -93,8 +103,16 @@ $(document).ready(function () {
 				}
 			});
 
+			$('#gameover').show();
+			$("#gameover").html("Match nul !");
+			return false;
+		} else if (game.game_over() === true) {
+			$('#gameover').show();
+			$("#gameover").html("Vous avez perdu !");
+
 			return false;
 		}
+
 	};
 
 
@@ -123,11 +141,14 @@ $(document).ready(function () {
 	var minimax = function (depth, alpha, beta, isMaximisingPlayer) {
 
 		if (depth === 0) {
+			globalVariable.player = 'AI';
+			console.log(globalVariable.player);
 			return -evaluateBoard(game.board());
 		}
 
 		var possibleNextMoves = game.moves();
 		var numPossibleMoves = possibleNextMoves.length
+
 
 		if (isMaximisingPlayer) {
 			var bestMove = -9999;
@@ -153,6 +174,7 @@ $(document).ready(function () {
 				}
 			}
 		}
+
 
 		return bestMove;
 	};
@@ -288,8 +310,6 @@ $(document).ready(function () {
 		var bestMove = calculateBestMove();
 		game.move(bestMove);
 		board.position(game.fen());
-
-		console.log(makeAImove.name);
 	};
 
 
@@ -307,6 +327,8 @@ $(document).ready(function () {
 		if (move === null) return 'snapback';
 
 		// make legal move for black AI player
+		globalVariable.player = 'human';
+		console.log(globalVariable.player);
 		window.setTimeout(makeAImove, 250);
 	};
 

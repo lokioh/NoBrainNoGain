@@ -29,12 +29,14 @@ class Chess {
     }
 
     getScoreChess(req, res, config) {
-        let scoreChess = req.body.scoreChess;
+        let scoreChessUser = req.body.scoreChess;
         let mail = req.session.mail;
+
+        console.log(scoreChessUser);
 
         let modelUser = new UserManagement(config);
 
-        modelUser.updateUserScoreConnect4(mail, scoreChess).then((valid) => {
+        modelUser.updateUserScoreChess(mail, scoreChessUser).then((valid) => {
             console.log('Donnée reçue');
         }).catch((error) => {
             setImmediate(() =>{
