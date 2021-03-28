@@ -85,6 +85,7 @@ Ou par email :
 - Ajouter des jeux en ligne
 - Ajouter une fonctionnalité de chat en ligne
 - Ajouter une fonctionnalité de requête d'ami
+- Ajouter une fonctionnalité jouer en multijoueur local sur nos jeux
 - Mettre le site en ligne sur AWS
 
 
