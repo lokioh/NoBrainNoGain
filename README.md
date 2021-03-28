@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="public/img/logo.png" alt="Logo" width="100" height="150">
+    <img src="public/img/logo.png" alt="Logo" width="125" height="150">
   </a>
 
   <h3 align="center">No Brain No Gain</h3>
