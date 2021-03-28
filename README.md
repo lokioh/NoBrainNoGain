@@ -36,14 +36,14 @@
 <!-- Get Access to the project -->
 ## Pour avoir accès au projet
 
-Vous pouvez nous contacter sur discord:
+Vous pouvez nous contacter sur discord :
   - Loki#8679
   - Vincentime#8847
   - Bilal#1888
   - 𝘚𝘢𝘒𝘢𝘛𝘢 悪芋栄#0803
 
 
-Ou par email:
+Ou par email :
   - loiclim.etu@gmail.com
   - vincent.ngy.pro@gmail.com
   - bilal.hamiche93@gmail.com
