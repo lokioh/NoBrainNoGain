@@ -1,0 +1,63 @@
+.bgcolor.scrolled {
+	background-color: black;
+}
+
+.alpha{
+	text-align:center;
+	color:rgba(66, 244, 220, 1);
+	font-family: 'Press Start 2P', cursive;
+	text-shadow:2px 2px #3498db;
+	font-size:18px;
+    
+}
+
+nav{
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    border: 0;
+}
+
+.navbarDames {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: transparent;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 25px;
+    margin: 0;
+}
+
+.navbarDames div a  {
+    margin: 0 6px;
+    color: rgb(137, 201, 227);
+    font-size: 18px;
+    text-transform: uppercase;
+	font-weight: bold;
+    text-decoration: none;
+}
+
+.logoneon {
+	width: 40px;
+    margin-left: 0;
+}
+
+.leftItems {
+    margin-right: 200px;
+    margin-left: 60px;
+}
+
+
+.rightItems {
+    margin-left: 20%;
+    margin-top: 25px;
+}
+
+.topfixed{
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}

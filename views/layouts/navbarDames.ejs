@@ -1,0 +1,32 @@
+<!-- Début NavBar -->
+
+<nav id="navDames" class="navbarDames topfixed bgcolor">
+    <div class="leftItems">
+        <a href="/"><img src="./img/logoneon.png" alt="logo" class="logoneon"></a>
+        <a class="alpha" href="/">NO BRAIN NO GAIN</a>
+    </div>
+
+    <div class="rightItems">
+        <a class="items" href="/">Accueil</a>
+
+        <% if(button=='home' ) { %>
+
+            <a class="items" href="#games">Jeux</a>
+
+        <% } %>
+
+        <a class="items" href="#footer">Contact</a>
+
+        <% if(isLoggedIn) { %>
+
+            <a class="items" href="/Profil" id="profil">Profil</a>
+            <a class="items" href="/logout">Déconnexion</a>
+
+        <% } %>
+    </div>
+</nav>
+
+
+<script src="./js/myscript.js"></script>
+
+<!-- Fin NavBar -->

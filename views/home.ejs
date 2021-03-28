@@ -77,7 +77,7 @@
                     Vous aimez les chiffres ? <br> Battez tous les records avec le fameux sudoku
                   </p>
                   <% if(isLoggedIn) { %>
-                    <a href="/sudoku"><button class="buttonGames"><span>Jouez !</span></button></a>
+                    <a href="/sudoku"><button id="sudokuBtn" class="buttonGames"><span>Jouez !</span></button></a>
                     <% } else { %>
                       <a href="/Authentification"><button class="buttonGames"><span>Connectez-vous !</span></button></a>
                       <% } %>
@@ -94,7 +94,7 @@
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit
                   </p>
                   <% if(isLoggedIn) { %>
-                    <a href=""><button class="buttonGames"><span>Jouez !</span></button></a>
+                    <a href="/dames"><button id="damesBtn" class="buttonGames"><span>Jouez !</span></button></a>
                     <% } else { %>
                       <a href="/Authentification"><button class="buttonGames"><span>Connectez-vous !</span></button></a>
                       <% } %>
@@ -166,6 +166,42 @@
 
 
       <script>
+
+        $('#damesBtn').on('click', function () {
+
+          let useDames = { 'useDames': 1 };
+
+          $.ajax({
+            type: "POST",
+            url: "http://localhost:3000/dames",
+            data: useDames,
+            success: function (response) {
+              console.log('envoyé');
+            },
+            error: function (error) {
+              console.log(error);
+            }
+          });
+
+        });
+
+        $('#sudokuBtn').on('click', function () {
+
+          let useSudoku = { 'useSudoku': 1 };
+
+          $.ajax({
+            type: "POST",
+            url: "http://localhost:3000/sudoku",
+            data: useSudoku,
+            success: function (response) {
+              console.log('envoyé');
+            },
+            error: function (error) {
+              console.log(error);
+            }
+          });
+
+        });
 
 
         $('#chessBtn').on('click', function () {

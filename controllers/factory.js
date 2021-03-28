@@ -4,6 +4,7 @@ const Profil = require('./Profil');
 const Sudoku = require('./Sudoku');
 const Connect4 = require('./Connect4');
 const Chess = require('./Chess');
+const Dames = require('./Dames');
 
 const classes = {
     Authentification,
@@ -11,7 +12,8 @@ const classes = {
     Profil,
     Sudoku,
     Connect4,
-    Chess
+    Chess,
+    Dames
 }
 
 exports.makeController = (name, options) => {

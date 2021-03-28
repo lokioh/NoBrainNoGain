@@ -1,0 +1,153 @@
+.container {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .board {
+    height: 500px;
+    width: 500px;
+    margin: 0 auto;
+  }
+  
+  .cell {
+    font-size: 1em;
+    vertical-align: baseline;
+    text-align: center;
+  }
+  
+  .scoreboard {
+    position: static;
+    font-family: "Aldrich", sans-serif;
+    top: 60px;
+    right: 280px;
+    color: white;
+  }
+  
+  .even {
+    height: 45px;
+    width: 45px;
+    display: inline-block;
+    border: 1px black solid;
+    background-color: #FF6A00;
+    color: #FF6A00;
+  }
+  
+  .fa {
+    line-height: 45px;
+  }
+  
+  .odd {
+    height: 45px;
+    width: 45px;
+    display: inline-block;
+    border: 1px black solid;
+    background-color: #AA4600;
+  }
+  
+  .score{
+    color: white;
+    font-size: 20px;  
+  }
+  
+  .empty {
+    height: 45px;
+    width: 45px;
+    display: inline-block;
+    border: 1px black solid;
+    background-color: #AA4600;
+    color: #AA4600;
+  }
+  
+  .info {
+    margin-bottom: 40px;
+  } 
+  
+  .title {
+    font-family: "Aldrich", sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 40px;
+    color: white;
+    padding-top: 10px;
+  }
+  
+  .control {
+    font-family: "Aldrich", sans-serif;
+    font-size: 40px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .messages {
+    font-family: "Aldrich", sans-serif;
+    font-size: 40px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .start {
+    margin-top: 20px;
+    width: 120px;
+    height: 100px;
+  
+    line-height: 100px;
+    text-align: center;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    opacity: 0.5;
+    display: none;
+  }
+  
+  .level {
+    margin: 0 15px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .not-selected, .possibles {
+    opacity: 0.5;
+  }
+  
+  .not-selected:hover {
+    opacity: 1;
+  }
+  
+  .ingame {
+    display: none;
+    color: white;
+  }
+  
+  .ingame > p {
+    margin: 0px;
+  }
+  
+  .robot {
+    opacity: 0.5;
+  }
+  
+  .start:hover {
+    opacity: 1;
+  }
+  
+  body{
+    background-image: url(../../img/fond.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .tab {
+    background-color: #161b46;
+    border-radius: 90px;
+    width: 1000px;
+    margin-left: auto;
+    margin-right:auto ;
+  }
+  

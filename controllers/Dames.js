@@ -1,20 +1,20 @@
 const GamesManagement = require('../models/GamesManagement');
 
-class Sudoku {
+class Dames {
 
     getView(req, res) {
-        res.render('sudoku', {
-            isLoggedIn: req.session.isLoggedIn
+        res.render('dames', {
+            isLoggedIn: req.session.isLogged
         })
     }
 
     post(req, res, config) {
-        let sudoku = req.body.useSudoku;
-        let name = 'sudoku';
+        let dames = req.body.useDames;
+        let name = 'dames';
 
         let modelGames = new GamesManagement(config);
 
-        modelGames.updateUse(sudoku, name).then((valid) => {
+        modelGames.updateUse(dames, name).then((valid) => {
             if(!valid){
                 console.log('Donnée reçue.');
             }
@@ -28,4 +28,4 @@ class Sudoku {
     
 }
 
-module.exports = Sudoku;
+module.exports = Dames;

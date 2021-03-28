@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>No Brain No Gain</title>
+
+    <link rel="icon" type="image/png" href="./img/logo.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Aldrich" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- NavBar -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Audiowide|Iceland|Monoton|Pacifico|Press+Start+2P|Vampiro+One'
+        rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merienda&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+
+
+
+
+
+    <!-- Fichiers CSS -->
+    <link rel="stylesheet" href="./css/navbarDames.css">
+    <link rel="stylesheet" href="./css/gamesCSS/dames.css">
+</head>
+
+<body>
+
+    <%- include('../views/layouts/navbarDames.ejs', {button: '' , isLoggedIn: true }); -%>
+
+
+        <!-- <div class="scoreboard">
+      <div class="score">Manches gagnées: <span class="human-score">0</span></div>
+      <div class="score">Manches perdues: <span class="robot-score">0</span></div>
+      <div class="score">Match(s) nul(s): <span class="draw-score">0</span></div>
+      <br>
+      <br>
+      <br>
+      <div class="score">Pièces noires capturées: <span class="cap-black">0</span></div>
+      <div class="score">Pièces blanches capturées: <span class="cap-white">0</span></div>
+      <br>
+      <br>
+      <div class="score">Au tour de: <span class="current-turn"></span></div>
+    </div> -->
+        <div class="tab">
+            <div class="title">Jeux de dames</div>
+            <div class="board">
+            </div>
+            <div class="control">
+                <!-- div.intial displays the starting controls -->
+                <div class="info">
+                    <div class="score">Pièces noires capturées: <span class="cap-black">0</span>
+                    </div>
+                    <div class="score">Pièces blanches capturées: <span class="cap-white">0</span></div>
+                    <div class="score">Au tour de: <span class="current-turn"></span></div>
+                </div>
+                <div class="initial">
+                    <div class="difficulty">
+                        <!-- <span class="level not-selected" id="random">Aléatoire</span> -->
+                        <span class="level not-selected" id="novice">Prêt ?</span>
+                        <!-- <span class="level not-selected" id="optimal">Difficile</span> -->
+                    </div>
+
+                    <div class="start">Jouer</div>
+                </div>
+
+                <!-- div.ingame displays in-game messages and controls -->
+                <div class="ingame" id="human">A votre tour !</div>
+                <div class="ingame" id="ai">
+                    <!-- <img src="imgs/robot.png" id="robot" class="robot" /> -->
+                    <p>Attendez que votre adversaire joue !</p>
+                </div>
+                <div class="ingame" id="won">Vous avez gagné !</div>
+                <div class="ingame" id="lost">Vous avez perdu !</div>
+                <div class="ingame" id="draw">Match nul !</div>
+            </div>
+            <div class="messages"></div>
+        </div>
+
+
+
+        <script src="./js/games/dames/build.js"></script>
+        <script src="./js/games/dames/board.js"></script>
+        <script src="./js/games/dames/ai.js"></script>
+        <script src="./js/games/dames/human.js"></script>
+        <script src="./js/games/dames/control.js"></script>
+        <!-- <script src="./js/myscript.js"></script> -->
+</body>
+
+</html>
