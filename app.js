@@ -63,6 +63,12 @@ for (let key in config['routes']) {
                 controller.getScoreDames(req, res, config['db']);
             });
 
+        } else if (key == '/dataScoreSudoku') {
+
+            app.post(key, (req, res) => {
+                controller.getScoreSudoku(req, res, config['db']);
+            });
+
         } else {
 
             app.get(key, (req, res) => {

@@ -69,7 +69,7 @@ class UserManagement {
     }
 
     updateUserScoreConnect4(mail, score) {
-        let statement = 'UPDATE User SET score_connect4_user = score_connect4_user + ? WHERE mail_user = ?';
+        let statement = 'UPDATE User SET score_connect4_user = score_connect4_user + ?, score_user = score_user + score_connect4_user  WHERE mail_user = ?';
 
         return new Promise((resolve, reject) => {
             this.connection.query(statement, [score, mail], (error, result) => {
@@ -80,7 +80,7 @@ class UserManagement {
     }
 
     updateUserScoreChess(mail, score) {
-        let statement = 'UPDATE User SET score_chess_user = score_chess_user + ? WHERE mail_user = ?';
+        let statement = 'UPDATE User SET score_chess_user = score_chess_user + ?, score_user = score_user + score_chess_user WHERE mail_user = ?';
 
         return new Promise((resolve, reject) => {
             this.connection.query(statement, [score, mail], (error, result) => {
@@ -91,7 +91,7 @@ class UserManagement {
     }
 
     updateUserScoreDames(mail, score) {
-        let statement = 'UPDATE User SET score_dames_user = score_dames_user + ? WHERE mail_user = ?';
+        let statement = 'UPDATE User SET score_dames_user = score_dames_user + ?, score_user = score_user + score_dames_user WHERE mail_user = ?';
 
         return new Promise((resolve, reject) => {
             this.connection.query(statement, [score, mail], (error, result) => {
@@ -102,7 +102,7 @@ class UserManagement {
     }
 
     updateUserScoreSudoku(mail, score) {
-        let statement = 'UPDATE User SET score_sudoku_user = score_chess_sudoku + ? WHERE mail_user = ?';
+        let statement = 'UPDATE User SET score_sudoku_user = score_chess_sudoku + ?, score_user = score_user + score_sudoku_user WHERE mail_user = ?';
 
         return new Promise((resolve, reject) => {
             this.connection.query(statement, [score, mail], (error, result) => {

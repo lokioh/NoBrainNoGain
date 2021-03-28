@@ -1,4 +1,5 @@
 const GamesManagement = require('../models/GamesManagement');
+const UserManagement = require('../models/UserManagement');
 
 class Sudoku {
 
@@ -21,6 +22,22 @@ class Sudoku {
 
         }).catch((error) => {
             setImmediate(() => {
+                throw error;
+            })
+        })
+    }
+
+
+    getScoreSudoku(req, res, config) {
+        let scoreSudoku = req.body.scoreSudoku;
+        let mail = req.session.mail;
+
+        let modelUser = new UserManagement(config);
+
+        modelUser.updateUserScoreSudoku(mail, scoreSudoku).then((valid) => {
+            console.log('Donnée reçue');
+        }).catch((error) => {
+            setImmediate(() =>{
                 throw error;
             })
         })
