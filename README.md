@@ -85,7 +85,7 @@ Ou par email:
 - Ajouter des jeux en ligne
 - Ajouter une fonctionnalité de chat en ligne
 - Ajouter une fonctionnalité de requête d'ami
-- Mettre le site en ligne
+- Mettre le site en ligne sur AWS
 
 
 <!-- LICENSE -->
