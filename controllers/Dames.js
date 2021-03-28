@@ -1,4 +1,5 @@
 const GamesManagement = require('../models/GamesManagement');
+const UserManagement = require('../models/UserManagement');
 
 class Dames {
 
@@ -21,6 +22,21 @@ class Dames {
 
         }).catch((error) => {
             setImmediate(() => {
+                throw error;
+            })
+        })
+    }
+
+    getScoreDames(req, res, config) {
+        let scoreDames = req.body.scoreDames;
+        let mail = req.session.mail;
+
+        let modelUser = new UserManagement(config);
+
+        modelUser.updateUserScoreDames(mail, scoreDames).then((valid) => {
+            console.log('Donnée reçue');
+        }).catch((error) => {
+            setImmediate(() =>{
                 throw error;
             })
         })

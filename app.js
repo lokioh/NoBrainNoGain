@@ -57,6 +57,12 @@ for (let key in config['routes']) {
                 controller.getScoreChess(req, res, config['db']);
             });
 
+        } else if(key == '/dataScoreDames') {
+
+            app.post(key, (req, res) => {
+                controller.getScoreDames(req, res, config['db']);
+            });
+
         } else {
 
             app.get(key, (req, res) => {

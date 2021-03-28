@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   buildBoard();
   populateBoard();
   clickEvents();
@@ -14,7 +14,7 @@ function containedMove(index, array) {
 
 // sets event listeners for clicks, turns off at the end
 function clickEvents() {
-  $('.board').on('click', '.odd', function() {
+  $('.board').on('click', '.odd', function () {
     var $this = $(this);
 
     var validMoves = globals.game.currentState.allValidMoves(globals.game.currentState.turn);
@@ -24,19 +24,19 @@ function clickEvents() {
     if (globals.game.status == "running" && globals.game.currentState.turn == "W" && /W/.test(globals.game.currentState.board[index]) && containedMove(index, validMoves)) {
       var possibleMoves = globals.game.currentState.indexValidMoves(index)
 
-      var endingLocations = possibleMoves.map(function(x) {return x[1]})
-      endingLocations = endingLocations.filter(function(x) {return x != undefined});
+      var endingLocations = possibleMoves.map(function (x) { return x[1] })
+      endingLocations = endingLocations.filter(function (x) { return x != undefined });
 
       var board = $('.cell');
       $('.possibles').removeClass('possibles');
 
-      endingLocations.forEach(function(location) {
+      endingLocations.forEach(function (location) {
         $(board[location]).addClass('possibles');
       })
 
-      $('.possibles').each(function() {
+      $('.possibles').each(function () {
         var $thistoo = $(this);
-        $thistoo.on('click', function() {
+        $thistoo.on('click', function () {
           $('.possibles').removeClass('possibles');
 
           var endPosition = parseInt($thistoo.data('index'));
@@ -86,9 +86,9 @@ function clickEvents() {
 var globals = {};
 
 // choose difficulty level
-$('.level').each(function() {
+$('.level').each(function () {
   var $this = $(this);
-  $this.click(function() {
+  $this.click(function () {
     $('.selected').toggleClass('not-selected');
     $('.selected').toggleClass('selected');
     $this.toggleClass('not-selected');
@@ -101,7 +101,7 @@ $('.level').each(function() {
 })
 
 // Start game
-$('.start').click(function() {
+$('.start').click(function () {
   var selectedDifficulty = $('.selected').attr('id');
   if (typeof selectedDifficulty !== "undefined") {
     var aiPlayer = new AI(selectedDifficulty);
@@ -118,7 +118,7 @@ $('.start').click(function() {
 })
 
 // Allow restarting of the game
-$('.messages').click(function() {
+$('.messages').click(function () {
   if (globals.game.status == "ended") {
     $('.board').html("");
 
@@ -135,6 +135,20 @@ $('.messages').click(function() {
     $('.messages').fadeOut();
     $('.start').hide();
     human.initialControlsVisible = true;
+
+    let useDames = { 'useDames': 1 };
+
+    $.ajax({
+      type: "POST",
+      url: "http://localhost:3000/dames",
+      data: useDames,
+      success: function (response) {
+        console.log('envoyé');
+      },
+      error: function (error) {
+        console.log(error);
+      }
+    });
 
     buildBoard();
     populateBoard();

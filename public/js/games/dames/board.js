@@ -585,12 +585,42 @@ var Game = function(autoPlayer) {
       if (_state.result == "White won") {
         human.switchViewTo("won");
         humanScore++;
+
+        let scoreDames = { 'scoreDames': 20 };
+
+        $.ajax({
+          type: "POST",
+          url: "http://localhost:3000/dataScoreDames",
+          data: scoreDames,
+          success: function (response) {
+            console.log('envoyé');
+          },
+          error: function (error) {
+            console.log(error);
+          }
+        });
+
       } else if (_state.result == "Black won") {
         human.switchViewTo("lost");
         robotScore++;
       } else {
         human.switchViewTo("draw");
         drawScore++;
+
+        let scoreDames = { 'scoreDames': 5 };
+
+          $.ajax({
+            type: "POST",
+            url: "http://localhost:3000/dataScoreDames",
+            data: scoreDames,
+            success: function (response) {
+              console.log('envoyé');
+            },
+            error: function (error) {
+              console.log(error);
+            }
+          });
+
       }
 
       $('.human-score').html(humanScore);

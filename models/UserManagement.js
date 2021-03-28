@@ -90,6 +90,28 @@ class UserManagement {
         });
     }
 
+    updateUserScoreDames(mail, score) {
+        let statement = 'UPDATE User SET score_dames_user = score_dames_user + ? WHERE mail_user = ?';
+
+        return new Promise((resolve, reject) => {
+            this.connection.query(statement, [score, mail], (error, result) => {
+                if(error) return reject;
+                return resolve(result.length > 0);
+            })
+        });
+    }
+
+    updateUserScoreSudoku(mail, score) {
+        let statement = 'UPDATE User SET score_sudoku_user = score_chess_sudoku + ? WHERE mail_user = ?';
+
+        return new Promise((resolve, reject) => {
+            this.connection.query(statement, [score, mail], (error, result) => {
+                if(error) return reject;
+                return resolve(result.length > 0);
+            })
+        });
+    }
+
 }
 
 module.exports = UserManagement;

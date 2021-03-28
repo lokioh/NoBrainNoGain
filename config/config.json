@@ -19,6 +19,7 @@
         "/dataScoreConnect4": "Connect4",
         "/echecs": "Chess",
         "/dataScoreChess": "Chess",
-        "/dames": "Dames"
+        "/dames": "Dames",
+        "/dataScoreDames": "Dames"
     }
 }
