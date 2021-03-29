@@ -8,36 +8,31 @@ html, body {
 
 /* Début de Haut de page */
 
-
-.carousel-caption h1 {
-	font-size: 45px;
-	text-transform: uppercase;
-	letter-spacing: 2px;
-	font-family: merienda;
-	text-decoration: none;
+.cover {
+    background-image: url(../img/Arcade.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 12em;
+    padding-top: 12em;
+    text-align: center; 
 }
 
-.font-italic {
-    font-family: "Raleway", sans-serif;
-	font-size: 30px;
-	font-weight: 300;
-	margin: 1.5em 3em 1em 3em;
-	padding-top: 1.5em;
-	color: white;
-	line-height: 36px;
-	letter-spacing: 1px;
+#coverTxt {
+    color: white;
+    font-size: 30px;
+    font-family: 'Rockwell';
 }
-
-.d-block {
-	max-height: 975px;
-}
-
-
 
 /* Début titre animation */
 
 /*Neon*/
 
+.title {
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 50px;
+}
 
 a {
 	text-decoration: none;
@@ -53,18 +48,18 @@ a {
 	text-decoration: none;
 }
 
-p:nth-child(1) a {
+h1:nth-child(1) a {
 	color: #FFFFFF;
 	font-family: Pacifico;
 }
 
-p:nth-child(1) a {
+h1:nth-child(1) a {
 	-webkit-animation: neon3 1.5s  infinite ;
 	-moz-animation: neon3 1.5s  infinite ;
 	animation: neon3 1.5s  infinite ;
 }
 
-p a {
+h1 a {
 	color: rgb(137, 201, 227)fff;
 }
 

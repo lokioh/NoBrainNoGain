@@ -38,25 +38,17 @@
 
     <!-- Début du contenu de la page -->
 
-    <div id="cover">
-      <div class="container-md">
-        <img id="img" alt="First slide" class="d-block w-100" src="./img/Arcade.jpg">
-        <div class="carousel-caption d-none d-md-block">
-          <div id="container">
-            <p class="title"><a href="/">No Brain No Gain</a></p>
-          </div>
-          <p class="animated bounceInLeft font-italic" style="animation-delay: 1s">Bienvenue sur No Brain No Gain, le
-            site de jeux
-            de jeux de réflexion parfait pour occuper votre temps libre.</p><br>
-          <% if(!isLoggedIn) { %>
-            <p class="animated bounceInRight" style="animation-delay: 1.5s"><a href="/Authentification"><button
-                  class="button"><span>Inscrivez vous !</span></button></a></p>
-            <% } else { %>
-              <p class="animated bounceInRight" style="animation-delay: 1.5s">Bienvenue <%=user%> !</p>
-              <% } %>
-
-        </div>
-      </div>
+    <div class="cover">
+      <h1 class="title"><a href="/">No Brain No Gain</a></h1>
+      <p class="animated bounceInLeft font-italic" style="animation-delay: 1s" id="coverTxt">
+        Bienvenue sur No Brain No Gain, <br> le site de jeu de réflexion parfait pour occuper votre temps libre.
+      </p><br>
+      <% if(!isLoggedIn) { %>
+        <p class="animated bounceInRight" style="animation-delay: 1.5s"><a href="/Authentification"><button
+              class="button"><span>Inscrivez vous !</span></button></a></p>
+        <% } else { %>
+          <p class="animated bounceInRight" style="animation-delay: 1.5s" id="coverTxt">Bienvenue <%=user%> !</p>
+          <% } %>
     </div>
 
     <!-- Début Jeux -->
