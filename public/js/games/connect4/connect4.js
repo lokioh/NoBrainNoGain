@@ -41,7 +41,7 @@ new Vue({
             this.canPlay = false;
             const result = await Swal.fire({
                 title: 'Choix du mode:',
-                text: "Voulez-vous jouez contre l'ordinateur ou contre un autre joueur",
+                text: "Voulez-vous jouer contre l'ordinateur ou contre un autre joueur",
                 icon: 'question',
                 showCancelButton: true,
                 confirmButtonColor: '#fdbf9c',
