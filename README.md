@@ -23,11 +23,11 @@
       <a href="#pour-avoir-accès-au-projet">Avoir accès au projet</a>
     </li>
     <li>
-      <a href="#install-and-launch-it">Installation et lancement</a>
+      <a href="#installation">Installation et lancement</a>
     </li>
-    <li><a href="#features">Fonctionnalités</a></li>
-    <li><a href="#future-improvements">Améliorations possibles</a></li>
-    <li><a href="#license">Licence</a></li>
+    <li><a href="#fonctionnalités">Fonctionnalités</a></li>
+    <li><a href="#améliorations-possibles">Améliorations possibles</a></li>
+    <li><a href="#licence">Licence</a></li>
   </ol>
 </details>
 
