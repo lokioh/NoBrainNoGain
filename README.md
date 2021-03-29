@@ -20,7 +20,7 @@
   <summary>Sommaire</summary>
   <ol>
     <li>
-      <a href="#get-access-to-the-project">Avoir accès au projet</a>
+      <a href="#pour-avoir-accès-au-projet">Avoir accès au projet</a>
     </li>
     <li>
       <a href="#install-and-launch-it">Installation et lancement</a>
@@ -59,11 +59,16 @@ Ou par email :
    ```
 2. Installez Node.js
 3. Lancer votre base de données sur phpmyadmin et importez notre base de données
-4. Lancer la commande suivante dans votre terminal :
+4. Lancez la commande suivante dans votre terminal :
     ```sh
-    node app.js
+    npm install
     ```
-5. Allez sur l'url suivant dans votre navigateur :
+5. Lancez cette deuxième commande dans votre terminal :
+   ```sh
+   node app.js
+   ```
+   
+6. Allez sur l'url suivant dans votre navigateur :
     ```sh
     localhost:3000
     ```
