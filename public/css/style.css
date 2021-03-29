@@ -136,12 +136,16 @@ h1 a {
 
 .subTitleG {
 	margin-top: 20px;
+	font-family: 'Rockwell';
+	font-size: 25px;
 }
 
 
 #descriptG {
 	padding-left: 80px;
 	padding-right: 80px;
+	font-family: 'Rockwell';
+	font-size: 15px;
 }
 
 #frame{
@@ -277,6 +281,7 @@ h1 a {
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 80px;
+	font-family: 'Rockwell';
 }
 
 #logoChart {
