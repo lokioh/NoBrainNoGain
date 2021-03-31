@@ -152,7 +152,8 @@ h1 a {
 
 #frame{
 	height: 600px;
-	width: 850px;
+	width: 870px;
+	border-radius: 20px;
 }
 
 /* Fin jeux */

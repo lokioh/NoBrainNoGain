@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
 .bgcolor.scrolled {
 	background-color: black;
 }
@@ -30,6 +38,15 @@ nav{
     margin: 0;
 }
 
+.items {
+    font-family: 'Poppins';
+}
+
+#navDames.navbarDames.topfixed.bgcolor.bgcolor.scrolled {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .navbarDames div a  {
     margin: 0 6px;
     color: rgb(137, 201, 227);
@@ -51,12 +68,11 @@ nav{
 
 
 .rightItems {
-    margin-left: 20%;
-    margin-top: 25px;
+    margin-left: 40%;
+    margin-top: 20px;
 }
 
 .topfixed{
-    position: sticky;
     top: 0;
     left: 0;
     z-index: 10;
