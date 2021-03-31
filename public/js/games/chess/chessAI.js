@@ -64,19 +64,7 @@ $(document).ready(function () {
 
 			if (globalVariable.player == 'human') {
 
-				let scoreChessJson = {'scoreChess': globalVariable.scoreChess}
 
-				$.ajax({
-					type: "POST",
-					url: "http://localhost:3000/dataScoreChess",
-					data: scoreChessJson,
-					success: function (response) {
-						console.log('envoyé');
-					},
-					error: function (error) {
-						console.log(error);
-					}
-				});
 				
 				$('#gameover').show();
 				$("#gameover").html('Vous avez gagné !');
@@ -89,19 +77,7 @@ $(document).ready(function () {
 
 		} else if (game.in_draw() === true) {
 			
-			let scoreChess = { 'scoreChess': 5 };
-
-			$.ajax({
-				type: "POST",
-				url: "http://localhost:3000/dataScoreChess",
-				data: scoreChess,
-				success: function (response) {
-					console.log('envoyé');
-				},
-				error: function (error) {
-					console.log(error);
-				}
-			});
+			
 
 			$('#gameover').show();
 			$("#gameover").html("Match nul !");

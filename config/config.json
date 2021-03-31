@@ -8,19 +8,10 @@
     },
 
     "routes": {
-        "/Authentification": "Authentification",
         "/": "Home",
-        "/logout": "",
-        "/dataProfil": "Profil",
-        "/dataHome": "Home",
-        "/Profil": "Profil",
         "/sudoku": "Sudoku",
-        "/dataScoreSudoku": "Sudoku",
         "/puissance4": "Connect4",
-        "/dataScoreConnect4": "Connect4",
         "/echecs": "Chess",
-        "/dataScoreChess": "Chess",
-        "/dames": "Dames",
-        "/dataScoreDames": "Dames"
+        "/dames": "Dames"
     }
 }

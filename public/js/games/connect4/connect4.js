@@ -132,16 +132,7 @@ new Vue({
                 }
             }
 
-            let scoreConnect4 = {'scoreConnect4': 5};
-            
-                $.ajax({
-                    type: "POST",
-                    url: "http://localhost:3000/dataScoreConnect4",
-                    data: scoreConnect4,
-                    success: function (response) {
-                        console.log('envoyé');
-                    }
-                });
+
 
 
             return true;
@@ -207,16 +198,7 @@ new Vue({
 
                 if(this.currentPlayer == 'o') {
 
-                    let scoreConnect4 = {'scoreConnect4': 15};
 
-                    $.ajax({
-                        type: "POST",
-                        url: "/dataScoreConnect4",
-                        data: scoreConnect4,
-                        success: function (response) {
-                            console.log('envoyé');
-                        }
-                    });
                 }
 
                 return true;
@@ -240,16 +222,7 @@ new Vue({
             });
             if (result.value) {
 
-                let useConnect4 = {'useConnect4': 1};
-            
-                $.ajax({
-                    type: "POST",
-                    url: "http://localhost:3000/puissance4",
-                    data: useConnect4,
-                    success: function (response) {
-                        console.log('envoyé');
-                    }
-                });
+
 
                 this.resetGame();
             } else {

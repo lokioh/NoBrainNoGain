@@ -85,16 +85,7 @@ function numberPad(value) {
 		}
 		$(".winScreen").fadeIn(100);
 
-		let scoreSudoku = { 'scoreSudoku': 25};
 
-		$.ajax({
-			type: "POST",
-			url: "http://localhost:3000/dataScoreSudoku",
-			data: scoreSudoku,
-			success: function (response) {
-				console.log('Donnée envoyé');
-			}
-		});
 
 		return;
 	}
@@ -129,19 +120,7 @@ function deselect() {
 function newGame() {
 	location.reload();
 
-	let useSudoku = { 'useSudoku': 1 };
-
-	$.ajax({
-		type: "POST",
-		url: "http://localhost:3000/sudoku",
-		data: useSudoku,
-		success: function (response) {
-			console.log('envoyé');
-		},
-		error: function (error) {
-			console.log(error);
-		}
-	});
+	
 }
 
 function solve() {

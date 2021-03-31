@@ -1,5 +1,3 @@
-const UserManagement = require('../models/UserManagement');
-const GamesManagement = require('../models/GamesManagement');
 var io = require('../app').io
 
 class Home {
@@ -10,31 +8,6 @@ class Home {
         });
     }
 
-    post(req, res, config) {
-
-        let modelUser = new UserManagement(config);
-
-        modelUser.getMeanScore().then((result) => {
-            res.send(result);
-        }).catch((error) => {
-            setImmediate(() => {
-                throw error;
-            })
-        })
-    }
-
-    getDataHome(req, res, config) {
-
-        let modelGames = new GamesManagement(config);
-
-        modelGames.getUseGames().then((result) => {
-            res.send(result);
-        }).catch((error) => {
-            setImmediate(() => {
-                throw error;
-            })
-        })
-    }
 
 }
 

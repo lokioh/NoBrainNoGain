@@ -48,13 +48,7 @@
       <h1 class="title"><a href="/">No Brain No Gain</a></h1>
       <p class="animated bounceInLeft font-italic" style="animation-delay: 1s" id="coverTxt">
         Bienvenue sur No Brain No Gain, <br> le site de jeu de réflexion parfait pour occuper votre temps libre.
-      </p><br>
-      <% if(!isLoggedIn) { %>
-        <p class="animated bounceInRight" style="animation-delay: 1.5s"><a href="/Authentification"><button
-              class="button"><span>Inscrivez vous !</span></button></a></p>
-        <% } else { %>
-          <p class="animated bounceInRight" style="animation-delay: 1.5s" id="coverTxt">Bienvenue <%=user%> !</p>
-          <% } %>
+      </p><br><br>
     </div>
 
     <!-- Début Jeux -->
@@ -74,11 +68,9 @@
                   <p class="small text-muted mb-0" id="descriptG">
                     Vous aimez les chiffres ? <br> Battez tous les records avec le fameux sudoku, codé par pocketjoso
                   </p>
-                  <% if(isLoggedIn) { %>
+
                     <a href="/sudoku"><button id="sudokuBtn" class="buttonGames"><span>Jouez !</span></button></a>
-                    <% } else { %>
-                      <a href="/Authentification"><button class="buttonGames"><span>Connectez-vous !</span></button></a>
-                      <% } %>
+
                 </div>
               </div>
               <!-- End -->
@@ -92,11 +84,9 @@
                     Venez vous relaxer de tout stress notre jeu de dames !<br>
                     codé par Nathanieslong
                   </p>
-                  <% if(isLoggedIn) { %>
+
                     <a href="/dames"><button id="damesBtn" class="buttonGames"><span>Jouez !</span></button></a>
-                    <% } else { %>
-                      <a href="/Authentification"><button class="buttonGames"><span>Connectez-vous !</span></button></a>
-                      <% } %>
+
                 </div>
               </div>
               <!-- End -->
@@ -113,11 +103,9 @@
                     Êtes-vous un stratège aguerri ? Imbattable ?<br>Venez nous le prouver
                     avec le jeu de stratégie indémodable que sont les échecs, codé par Gautambajaj
                   </p>
-                  <% if(isLoggedIn) { %>
+
                     <a href="/echecs"><button id="chessBtn" class="buttonGames"><span>Jouez !</span></button></a>
-                    <% } else { %>
-                      <a href="/Authentification"><button class="buttonGames"><span>Connectez-vous !</span></button></a>
-                      <% } %>
+
                 </div>
               </div>
               <!-- End -->
@@ -131,11 +119,9 @@
                     Venez vous amuser dans notre magnifique puissance 4 !<br>
                     codé par Parzibyte
                   </p>
-                  <% if(isLoggedIn) { %>
+
                     <a href="/puissance4"><button id="connect4Btn" class="buttonGames"><span>Jouez !</span></button></a>
-                    <% } else { %>
-                      <a href="/Authentification"><button class="buttonGames"><span>Connectez-vous !</span></button></a>
-                      <% } %>
+
                 </div>
               </div>
               <!-- End -->
@@ -166,78 +152,7 @@
 
       <script>
 
-        $('#damesBtn').on('click', function () {
-
-          let useDames = { 'useDames': 1 };
-
-          $.ajax({
-            type: "POST",
-            url: "http://localhost:3000/dames",
-            data: useDames,
-            success: function (response) {
-              console.log('envoyé');
-            },
-            error: function (error) {
-              console.log(error);
-            }
-          });
-
-        });
-
-        $('#sudokuBtn').on('click', function () {
-
-          let useSudoku = { 'useSudoku': 1 };
-
-          $.ajax({
-            type: "POST",
-            url: "http://localhost:3000/sudoku",
-            data: useSudoku,
-            success: function (response) {
-              console.log('envoyé');
-            },
-            error: function (error) {
-              console.log(error);
-            }
-          });
-
-        });
-
-
-        $('#chessBtn').on('click', function () {
-
-          let useChess = { 'useChess': 1 };
-
-          $.ajax({
-            type: "POST",
-            url: "http://localhost:3000/echecs",
-            data: useChess,
-            success: function (response) {
-              console.log('envoyé');
-            },
-            error: function (error) {
-              console.log(error);
-            }
-          });
-
-        });
-
-        $('#connect4Btn').on('click', function () {
-
-          let useConnect4 = { 'useConnect4': 1 };
-
-          $.ajax({
-            type: "POST",
-            url: "http://localhost:3000/puissance4",
-            data: useConnect4,
-            success: function (response) {
-              console.log('envoyé');
-            },
-            error: function (error) {
-              console.log(error);
-            }
-          });
-
-        });
+        let socket = io();
 
       </script>
 

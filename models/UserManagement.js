@@ -1,117 +1,117 @@
-const db = require('mysql');
-const bcrypt = require('bcrypt');
+// const db = require('mysql');
+// const bcrypt = require('bcrypt');
 
-class UserManagement {
+// class UserManagement {
 
-    constructor(config) {
-        this.connection = db.createConnection(config);
-        this.connection.connect((error) => {
-            if (error) throw error;
-        })
-    }
+//     constructor(config) {
+//         this.connection = db.createConnection(config);
+//         this.connection.connect((error) => {
+//             if (error) throw error;
+//         })
+//     }
 
-    //méthode récupérant le nom de l'utilisateur
-    getName(mail) {
-        let statement = 'SELECT name_user FROM user WHERE mail_user = ?';
+//     //méthode récupérant le nom de l'utilisateur
+//     getName(mail) {
+//         let statement = 'SELECT name_user FROM user WHERE mail_user = ?';
 
-        return new Promise((resolve, reject) => {
-            this.connection.query(statement, mail, (error, result) => {
-                if (error) return reject;
-                return resolve(result[0].name_user);
-            });
-        });
-    }
+//         return new Promise((resolve, reject) => {
+//             this.connection.query(statement, mail, (error, result) => {
+//                 if (error) return reject;
+//                 return resolve(result[0].name_user);
+//             });
+//         });
+//     }
 
-    getDataUser(mail) {
-        let statement = 'SELECT name_user, mail_user, about_user, score_user, score_chess_user, score_connect4_user, score_dames_user, score_sudoku_user FROM User WHERE mail_user = ?'; 
+//     getDataUser(mail) {
+//         let statement = 'SELECT name_user, mail_user, about_user, score_user, score_chess_user, score_connect4_user, score_dames_user, score_sudoku_user FROM User WHERE mail_user = ?'; 
     
-        return new Promise((resolve, reject) => {
-            this.connection.query(statement, mail, (error, result) => {
-                if (error) return reject;
-                return resolve(JSON.stringify(result));
-            });
-        });
-    }
+//         return new Promise((resolve, reject) => {
+//             this.connection.query(statement, mail, (error, result) => {
+//                 if (error) return reject;
+//                 return resolve(JSON.stringify(result));
+//             });
+//         });
+//     }
 
-    getMeanScore() {
-        let statement = 'SELECT name_user, score_user FROM User ORDER BY score_user DESC';
+//     getMeanScore() {
+//         let statement = 'SELECT name_user, score_user FROM User ORDER BY score_user DESC';
 
-        return new Promise((resolve, reject) => {
-            this.connection.query(statement, (error, result) => {
-                if (error) return reject
-                return resolve(JSON.stringify(result));
-            });
-        });
-    }
+//         return new Promise((resolve, reject) => {
+//             this.connection.query(statement, (error, result) => {
+//                 if (error) return reject
+//                 return resolve(JSON.stringify(result));
+//             });
+//         });
+//     }
 
-    getUserScore(mail) {
-        let statement = 'SELECT score_user, score_chess_user, score_connect4_user, score_dames_user, score_sudoku_user FROM USER WHERE mail_user = ?';
+//     getUserScore(mail) {
+//         let statement = 'SELECT score_user, score_chess_user, score_connect4_user, score_dames_user, score_sudoku_user FROM USER WHERE mail_user = ?';
 
-        return new Promise((resolve, reject) => {
-            this.connection.query(statement, [mail], (error, result) => {
-                if(error) return reject;
-                return resolve(JSON.stringify(result));
-            });
-        });
-    }
+//         return new Promise((resolve, reject) => {
+//             this.connection.query(statement, [mail], (error, result) => {
+//                 if(error) return reject;
+//                 return resolve(JSON.stringify(result));
+//             });
+//         });
+//     }
 
-    modifUser(nameModif, pwdModif, aboutMeModif, mail) {
-        let statement = 'UPDATE User SET name_user = ?, pwd_user = ?, about_user = ? WHERE mail_user = ?';
+//     modifUser(nameModif, pwdModif, aboutMeModif, mail) {
+//         let statement = 'UPDATE User SET name_user = ?, pwd_user = ?, about_user = ? WHERE mail_user = ?';
 
-        return new Promise((resolve, reject) => {
-            bcrypt.hash(pwdModif, 10).then((hash_password_modif) => {
-                this.connection.query(statement, [nameModif, hash_password_modif, aboutMeModif, mail], (error, result) => {
-                    if(error) return reject;
-                    return resolve(result.length > 0);
-                });
-            });
-        });
-    }
+//         return new Promise((resolve, reject) => {
+//             bcrypt.hash(pwdModif, 10).then((hash_password_modif) => {
+//                 this.connection.query(statement, [nameModif, hash_password_modif, aboutMeModif, mail], (error, result) => {
+//                     if(error) return reject;
+//                     return resolve(result.length > 0);
+//                 });
+//             });
+//         });
+//     }
 
-    updateUserScoreConnect4(mail, score) {
-        let statement = 'UPDATE User SET score_connect4_user = score_connect4_user + ?, score_user = score_user + score_connect4_user  WHERE mail_user = ?';
+//     updateUserScoreConnect4(mail, score) {
+//         let statement = 'UPDATE User SET score_connect4_user = score_connect4_user + ?, score_user = score_user + score_connect4_user  WHERE mail_user = ?';
 
-        return new Promise((resolve, reject) => {
-            this.connection.query(statement, [score, mail], (error, result) => {
-                if(error) return reject;
-                return resolve(result.length > 0);
-            })
-        });
-    }
+//         return new Promise((resolve, reject) => {
+//             this.connection.query(statement, [score, mail], (error, result) => {
+//                 if(error) return reject;
+//                 return resolve(result.length > 0);
+//             })
+//         });
+//     }
 
-    updateUserScoreChess(mail, score) {
-        let statement = 'UPDATE User SET score_chess_user = score_chess_user + ?, score_user = score_user + score_chess_user WHERE mail_user = ?';
+//     updateUserScoreChess(mail, score) {
+//         let statement = 'UPDATE User SET score_chess_user = score_chess_user + ?, score_user = score_user + score_chess_user WHERE mail_user = ?';
 
-        return new Promise((resolve, reject) => {
-            this.connection.query(statement, [score, mail], (error, result) => {
-                if(error) return reject;
-                return resolve(result.length > 0);
-            })
-        });
-    }
+//         return new Promise((resolve, reject) => {
+//             this.connection.query(statement, [score, mail], (error, result) => {
+//                 if(error) return reject;
+//                 return resolve(result.length > 0);
+//             })
+//         });
+//     }
 
-    updateUserScoreDames(mail, score) {
-        let statement = 'UPDATE User SET score_dames_user = score_dames_user + ?, score_user = score_user + score_dames_user WHERE mail_user = ?';
+//     updateUserScoreDames(mail, score) {
+//         let statement = 'UPDATE User SET score_dames_user = score_dames_user + ?, score_user = score_user + score_dames_user WHERE mail_user = ?';
 
-        return new Promise((resolve, reject) => {
-            this.connection.query(statement, [score, mail], (error, result) => {
-                if(error) return reject;
-                return resolve(result.length > 0);
-            })
-        });
-    }
+//         return new Promise((resolve, reject) => {
+//             this.connection.query(statement, [score, mail], (error, result) => {
+//                 if(error) return reject;
+//                 return resolve(result.length > 0);
+//             })
+//         });
+//     }
 
-    updateUserScoreSudoku(mail, score) {
-        let statement = 'UPDATE User SET score_sudoku_user = score_chess_sudoku + ?, score_user = score_user + score_sudoku_user WHERE mail_user = ?';
+//     updateUserScoreSudoku(mail, score) {
+//         let statement = 'UPDATE User SET score_sudoku_user = score_chess_sudoku + ?, score_user = score_user + score_sudoku_user WHERE mail_user = ?';
 
-        return new Promise((resolve, reject) => {
-            this.connection.query(statement, [score, mail], (error, result) => {
-                if(error) return reject;
-                return resolve(result.length > 0);
-            })
-        });
-    }
+//         return new Promise((resolve, reject) => {
+//             this.connection.query(statement, [score, mail], (error, result) => {
+//                 if(error) return reject;
+//                 return resolve(result.length > 0);
+//             })
+//         });
+//     }
 
-}
+// }
 
-module.exports = UserManagement;
+// module.exports = UserManagement;
