@@ -90,4 +90,4 @@ Vous pouvez nous contacter sur discord :
 <!-- LICENSE -->
 ## Licence
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the NoBrainNoGain License.
