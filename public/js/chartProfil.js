@@ -2,6 +2,7 @@ $(document).ready(function () {
 
     function chartProfil() {
 
+        
 
 
         let dataRes;
@@ -35,6 +36,8 @@ $(document).ready(function () {
         $('#aboutMeSection').text(about_user);
         $('#aboutMeSection2').text(about_user);
         $('#inputNom').attr('value', name_user);
+        $('#nomProfil').text(name_user);
+        $('#nomB').text('Bonjour ' + name_user);
 
 
         let chartDataRes = {

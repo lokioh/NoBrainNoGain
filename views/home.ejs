@@ -2,25 +2,26 @@
 <html lang="fr">
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="Description" content="Accueil de NoBrainNoGain">
+  <link rel="apple-touch-icon" href="/example.png">
   <title>No Brain No Gain</title>
 
-  <link rel="icon" type="image/png" href="./img/logo.png">
+  <link rel="icon" type="image/png" href="./img/logo.webp">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Merienda&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Audiowide|Iceland|Monoton|Pacifico|Press+Start+2P|Vampiro+One'
-    rel='stylesheet' type='text/css'>
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
     integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
     crossorigin="anonymous"></script>
 
   <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
+
+  <link rel="preconnect" href="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80">
+  <link rel="preconnect" href="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1051&q=80">
 
   <!-- Fichiers CSS -->
   <link href="./css/style.css" rel="stylesheet">
@@ -28,7 +29,7 @@
   <link href="./css/footer.css" rel="stylesheet">
 
   <!-- Fichiers JS -->
-  <script type="text/javascript" src="./js/chartHome.js"></script>
+  <script type="text/javascript" src="./js/chartHome.js" content-encoding></script>
 
 </head>
 
@@ -62,7 +63,7 @@
 
               <!-- Gallery item -->
               <div class="col-xl col-lg-4 col-md-6 mb-4">
-                <div class="bg-white rounded shadow-sm"><img src="./img/jeux-images/sudoku.png" alt="Sudoku"
+                <div class="bg-white rounded shadow-sm"><img src="./img/jeux-images/sudoku.webP" alt="Sudoku"
                     class="img-fluid card-img-top" id="frame">
                   <h5 class="subTitleG">Sudoku</h5>
                   <p class="small text-muted mb-0" id="descriptG">
@@ -79,7 +80,7 @@
 
               <!-- Gallery item -->
               <div class="col-xl col-lg-4 col-md-6 mb-4">
-                <div class="bg-white rounded shadow-sm"><img src="./img/jeux-images/Dames.jpg" alt="Dames"
+                <div class="bg-white rounded shadow-sm"><img src="./img/jeux-images/Dames.webp" alt="Dames"
                     class="img-fluid card-img-top" id="frame">
                   <h5 class="subTitleG">Dames</h5>
                   <p class="small text-muted mb-0" id="descriptG">
@@ -100,7 +101,7 @@
             <div class="row">
               <!-- Gallery item -->
               <div class="col-xl col-lg-4 col-md-6 mb-4">
-                <div class="bg-white rounded shadow-sm"><img src="./img/jeux-images/chess.jpg" alt="Échecs"
+                <div class="bg-white rounded shadow-sm"><img src="./img/jeux-images/chess.webp" alt="Échecs"
                     class="img-fluid card-img-top" id="frame">
                   <h5 class="subTitleG">Échecs</h5>
                   <p class="small text-muted mb-0" id="descriptG">
@@ -118,7 +119,7 @@
 
               <!-- Gallery item -->
               <div class="col-xl col-lg-4 col-md-6 mb-4">
-                <div class="bg-white rounded shadow-sm"><img src="./img/jeux-images/connect4.png" alt="Puissance 4"
+                <div class="bg-white rounded shadow-sm"><img src="./img/jeux-images/connect4.webp" alt="Puissance 4"
                     class="img-fluid card-img-top" id="frame">
                   <h5 class="subTitleG">Puissance 4</h5>
                   <p class="small text-muted mb-0" id="descriptG">
@@ -145,7 +146,7 @@
     <div class="end"></div>
 
     <div class="chart">
-      <a href="/"><img src="./img/logo.png" alt="logo" id="logoChart"></a>
+      <a href="/"><img src="./img/logo.webp" alt="logo" id="logoChart"></a>
       <h1 class="chartTitle">Ici le tableau des scores des meilleurs joueurs de No Brain No Gain</h1>
       <canvas id="chart"></canvas>
       <h1 class="chartTitle">Voici les jeux les plus joués sur No Brain No Gain !</h1>

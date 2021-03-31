@@ -21,15 +21,13 @@
 	margin-bottom:0;
   }
   
-  .footer-dark ul a {
+  .footer-dark ul  {
 	color:inherit;
 	text-decoration:none;
 	opacity:0.6;
   }
   
-  .footer-dark ul a:hover {
-	opacity:0.8;
-  }
+
   
   @media (max-width:767px) {
 	.footer-dark .item:not(.social) {
@@ -70,7 +68,7 @@
 
   }
   
-  .footer-dark .item.social > a {
+  .footer-dark .item.social  {
 	font-size:20px;
 	width:36px;
 	height:36px;
@@ -84,9 +82,7 @@
 	opacity:0.75;
   }
   
-  .footer-dark .item.social > a:hover {
-	opacity:0.9;
-  }
+
   
   .footer-dark .copyright {
 	text-align:center;

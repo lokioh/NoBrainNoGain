@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:900i&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Audiowide|Iceland|Monoton|Pacifico|Press+Start+2P|Vampiro+One');
 
 html, body {
 	margin: 0;
@@ -9,7 +11,7 @@ html, body {
 /* Début de Haut de page */
 
 .cover {
-    background-image: url(../img/Arcade.jpg);
+    background-image: url(https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1051&q=80);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -209,7 +211,7 @@ h1 a {
 /* Fin bouton jouer */
 
 .end {
-	background-image: url(../img/background-end.jpg);
+	background-image: url(https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80);
 	background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -285,6 +287,8 @@ h1 a {
 }
 
 #logoChart {
+	width: 200px;
+	height: 235px;
 	max-width: 200px;
 	margin-bottom: 80px;
 	display: block;
