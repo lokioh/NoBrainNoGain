@@ -254,7 +254,7 @@ new Vue({
                 this.resetGame();
             } else {
                 // si l'utilisateur ne veut pas rejouer redirect
-                location.replace('/');
+                document.location.href="/";
             }
         },
         async makeCpuMove() {
