@@ -151,9 +151,21 @@ h1 a {
 }
 
 #frame{
-	height: 600px;
+	height: 700px;
 	width: 870px;
+	max-width: 100%;
 	border-radius: 20px;
+}
+
+.bg-white.roundes.shadow-sm {
+	max-width: 100%;
+}
+
+@media only screen and (max-width: 1200px) {
+	#frame {
+		height: 350px;
+		width: 500px;
+	}
 }
 
 /* Fin jeux */
@@ -170,7 +182,7 @@ h1 a {
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	line-height: 1.7em;
-	padding: 4px 50px 4px 50px;
+	padding: 10px 50px 10px 50px;
 	margin-bottom: 56px;
 	margin-top: 15px;
 	font-weight: bold;
@@ -273,6 +285,8 @@ h1 a {
 	opacity: 1;
 	right: 0;
 }
+
+
 
 /* Fin bouton inscription */
 
