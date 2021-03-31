@@ -4,9 +4,15 @@
 	background-color: black;
 }
 
+ul.navbar-nav.mr-auto {
+	text-align: right;
+	margin-right: 50px!important;
+	margin-left: auto;
+}
+
 .alpha{
 	text-align:center;
-	color:rgba(66, 244, 220, 1);
+	color: black;
 	font-family: 'Press Start 2P', cursive;
 	margin-top:10px;
 	text-shadow:2px 2px #3498db;
@@ -76,9 +82,9 @@
 .logoneon {
 	width: 40px;
 	height: 50px;
-	margin-right: 40px;
+	margin-right: 50px;
 	margin-bottom: 25px;
-
+	margin-left: 50px;
 }
 
 
